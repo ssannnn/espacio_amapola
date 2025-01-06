@@ -1,0 +1,23 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title ? `${title} | Tu Sitio` : "Tu Sitio"}</title>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <Header />
+    <slot class="flex-grow" />
+    <Footer />
+  </body>
+</html>
