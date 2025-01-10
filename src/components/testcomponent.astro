@@ -1,0 +1,148 @@
+<section class="relative bg-white py-16">
+  <div class="container mx-auto px-4 text-center">
+    <!-- Título de la Sección -->
+    <!-- Título de la Sección -->
+    <!-- Alternativa con saltos
+     <h1 class="text-4xl font-bold flex space-x-1">
+              <span class="hover:animate-bounce">T</span>
+              <span class="hover:animate-bounce">í</span>
+              <span class="hover:animate-bounce">t</span>
+              <span class="hover:animate-bounce">u</span>
+              <span class="hover:animate-bounce">l</span>
+              <span class="hover:animate-bounce">o</span>
+    </h1> -->
+<h2 class="relative inline-block text-4xl md:text-6xl font-serif font-semibold text-orange-2 mb-16 transition-transform duration-300 hover:scale-110">
+    Experiencias
+</h2>
+
+    <!-- Contenedor del Carrusel -->
+    <div class="relative">
+      <!-- Botón Izquierdo -->
+      <button
+        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
+        onclick="scrollCarousel(-1)"
+      >
+        ◀
+      </button>
+
+      <!-- Carrusel -->
+      <div
+        id="carousel"
+        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth"
+        style="scrollbar-width: none; -ms-overflow-style: none;"
+      >
+        <style>
+          ::-webkit-scrollbar {
+            display: none;
+          }
+        </style>
+
+        <!-- Tarjetas -->
+        {[
+          {
+            name: "Muli & Juan",
+            testimony:
+              "Mi pasión es brindar apoyo y orientación personalizada a embarazadas y puérperas, ayudándoles a vivir esta etapa de forma plena y consciente.",
+            image: "/src/assets/images/posnatales_img.png",
+          },
+          {
+            name: "Sofía & Pedro",
+            testimony:
+              "Los encuentros nos ayudaron a fortalecer nuestra conexión y a prepararnos para este nuevo capítulo.",
+            image: "/src/assets/images/posnatales_img.png",
+          },
+          {
+            name: "Ana & Leo",
+            testimony:
+              "Gracias a este espacio, nos sentimos acompañados en cada paso de nuestro camino como padres.",
+            image: "/src/assets/images/posnatales_img.png",
+          },
+          {
+            name: "Muli & Juan",
+            testimony:
+              "Mi pasión es brindar apoyo y orientación personalizada a embarazadas y puérperas, ayudándoles a vivir esta etapa de forma plena y consciente.",
+            image: "/src/assets/images/posnatales_img.png",
+          },
+          {
+            name: "Sofía & Pedro",
+            testimony:
+              "Los encuentros nos ayudaron a fortalecer nuestra conexión y a prepararnos para este nuevo capítulo.",
+            image: "/src/assets/images/posnatales_img.png",
+          },
+          {
+            name: "Ana & Leo",
+            testimony:
+              "Gracias a este espacio, nos sentimos acompañados en cada paso de nuestro camino como padres.",
+            image: "/src/assets/images/posnatales_img.png",
+          },
+        ].map((testimony) => (
+          <div
+            class="snap-center flex-shrink-0 bg-white border-2 border-orange-500 rounded-lg shadow-lg p-6 w-[300px] md:w-[350px] transition-all duration-300 hover:bg-orange-100"
+          >
+            <div class="flex flex-col items-center">
+              <!-- Imagen Circular -->
+              <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
+                <img
+                  src={testimony.image}
+                  alt={`Foto de ${testimony.name}`}
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <!-- Nombre -->
+              <h3 class="text-xl font-semibold text-naranja-oscuro mb-4">
+                {testimony.name}
+              </h3>
+              <!-- Testimonio -->
+              <p class="text-gray-700 text-sm">{testimony.testimony}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Botón Derecho -->
+      <button
+        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
+        onclick="scrollCarousel(1)"
+      >
+        ▶
+      </button>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  const carousel = document.getElementById("carousel");
+  let autoScrollInterval;
+
+  // Función para mover el carrusel manualmente
+  function scrollCarousel(direction) {
+    const scrollAmount = 350; // Ajusta según el tamaño de las tarjetas
+    carousel.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
+  }
+
+  // Función para iniciar el auto-scroll
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      const scrollWidth = carousel.scrollWidth - carousel.clientWidth;
+
+      // Si el carrusel llega al final, vuelve al inicio
+      if (carousel.scrollLeft >= scrollWidth) {
+        carousel.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        scrollCarousel(1);
+      }
+    }, 2000); // Cambia el intervalo si es necesario
+  }
+
+  // Función para detener el auto-scroll
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+
+  // Inicia el auto-scroll al cargar
+  window.addEventListener("load", startAutoScroll);
+
+  // Pausa el auto-scroll al interactuar
+  carousel.addEventListener("mouseover", stopAutoScroll);
+  carousel.addEventListener("mouseout", startAutoScroll);
+</script>

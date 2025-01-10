@@ -1,11 +1,3 @@
----
-const images = [
-  "/src/assets/images/prenatales_img.png",
-  "/src/assets/images/en_pareja_img.png",
-  "/src/assets/images/posnatales_img.png",
-];
----
-
 <section class="relative bg-orange-2 text-white-1 py-16">
   <div class="container mx-auto px-4">
     <!-- Título y Descripción Centrados -->
@@ -14,7 +6,7 @@ const images = [
       data-animate
     >
       <!-- Título -->
-      <h2 class="text-4xl md:text-6xl font-semibold mb-6 font-serif">
+      <h2 class="text-6xl md:text-8xl font-semibold mb-6 font-serif">
         Espacio Amapola
       </h2>
 
@@ -28,49 +20,28 @@ const images = [
         y compañía durante este maravilloso capítulo de sus vidas.
       </p>
     </div>
-
-    <!-- Contenedor de Imágenes -->
-    <div class="flex flex-wrap justify-center -mx-4">
-      {
-        images.map((src, index) => (
-          <div
-            class="w-full md:w-1/3 px-4 mb-8 opacity-0 transform translate-y-10 transition-all duration-1000"
-            style={`transition-delay: ${(index + 1) * 200}ms`}
-            data-animate
-          >
-            <div class="relative pb-[100%] overflow-hidden rounded-lg shadow-lg">
-              <img
-                src={src}
-                alt={`Imagen ${index + 1}`}
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        ))
-      }
-    </div>
   </div>
+
+  <!-- Script para manejar las animaciones al hacer scroll -->
+  <script is:inline>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-10");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    // Seleccionamos todos los elementos con el atributo data-animate
+    const animateElements = document.querySelectorAll("[data-animate]");
+    animateElements.forEach((el) => {
+      observer.observe(el);
+    });
+  </script>
 </section>
-
-<!-- Script para manejar las animaciones al hacer scroll -->
-<script is:inline>
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.remove("opacity-0", "translate-y-10");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-    }
-  );
-
-  // Seleccionamos todos los elementos con el atributo data-animate
-  const animateElements = document.querySelectorAll("[data-animate]");
-  animateElements.forEach((el) => {
-    observer.observe(el);
-  });
-</script>
