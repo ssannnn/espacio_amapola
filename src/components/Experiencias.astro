@@ -1,28 +1,24 @@
 <section class="relative bg-white py-16">
   <div class="container mx-auto px-4 text-center">
-    <!-- Título de la Sección -->
-    <!-- Título de la Sección -->
-    <!-- Alternativa con saltos
-     <h1 class="text-4xl font-bold flex space-x-1">
-              <span class="hover:animate-bounce">T</span>
-              <span class="hover:animate-bounce">í</span>
-              <span class="hover:animate-bounce">t</span>
-              <span class="hover:animate-bounce">u</span>
-              <span class="hover:animate-bounce">l</span>
-              <span class="hover:animate-bounce">o</span>
-    </h1> -->
-<h2 class="relative inline-block text-4xl md:text-6xl font-serif font-semibold text-orange-2 mb-16 transition-transform duration-300 hover:scale-110">
-    Experiencias
-</h2>
+    <!-- Título -->
+    <h2
+      class="relative inline-block text-4xl md:text-6xl font-serif font-semibold text-orange-2 mb-16 transition-transform duration-300 hover:scale-105"
+    >
+      Experiencias
+    </h2>
 
     <!-- Contenedor del Carrusel -->
     <div class="relative">
       <!-- Botón Izquierdo -->
       <button
-        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
+        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
+        aria-label="Anterior"
+        tabindex="0"
         onclick="scrollCarousel(-1)"
       >
-        ◀
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
       </button>
 
       <!-- Carrusel -->
@@ -75,9 +71,10 @@
               "Gracias a este espacio, nos sentimos acompañados en cada paso de nuestro camino como padres.",
             image: "/src/assets/images/posnatales_img.png",
           },
-        ].map((testimony) => (
+        ].map((testimony, index) => (
           <div
-            class="snap-center flex-shrink-0 bg-white border-2 border-orange-500 rounded-lg shadow-lg p-6 w-[300px] md:w-[350px] transition-all duration-300 hover:bg-orange-100"
+            class="snap-center flex-shrink-0 bg-white border-2 border-orange-500 bg-orange-50 rounded-lg shadow-lg p-6 w-[280px] sm:w-[300px] md:w-[350px] lg:w-[400px]  hover:bg-orange-100 "
+            data-index={index}
           >
             <div class="flex flex-col items-center">
               <!-- Imagen Circular -->
@@ -89,11 +86,11 @@
                 />
               </div>
               <!-- Nombre -->
-              <h3 class="text-xl font-semibold text-naranja-oscuro mb-4">
+              <h3 class="text-xl font-serif text-orange-500 mb-4">
                 {testimony.name}
               </h3>
               <!-- Testimonio -->
-              <p class="text-gray-700 text-sm">{testimony.testimony}</p>
+              <p class="text-gray-700 text-sm font-sans">{testimony.testimony}</p>
             </div>
           </div>
         ))}
@@ -101,37 +98,99 @@
 
       <!-- Botón Derecho -->
       <button
-        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
+        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
+        aria-label="Siguiente"
+        tabindex="0"
         onclick="scrollCarousel(1)"
       >
-        ▶
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
+    </div>
+
+    <!-- Indicadores -->
+    <div class="mt-4 flex justify-center space-x-2" id="carouselIndicators">
+      {[...Array(3)].map((_, i) => (
+        <span
+          class="w-3 h-3 rounded-full bg-gray-400 transition"
+          data-index={i}
+          aria-label={`Indicador ${i + 1}`}
+        ></span>
+      ))}
     </div>
   </div>
 </section>
 
 <script is:inline>
   const carousel = document.getElementById("carousel");
+  const indicators = document.querySelectorAll("#carouselIndicators span");
   let autoScrollInterval;
+  let currentIndex = 0;
+  let isAutoScrolling = true; // Bandera para diferenciar entre auto-scroll y manual
 
   // Función para mover el carrusel manualmente
   function scrollCarousel(direction) {
-    const scrollAmount = 350; // Ajusta según el tamaño de las tarjetas
-    carousel.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
+    isAutoScrolling = false; // Desactivamos el auto-scroll temporalmente
+    const cardWidth = carousel.querySelector(".snap-center").offsetWidth;
+    const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
+    const scrollAmount = cardWidth + gap;
+    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+    // Calcula el nuevo desplazamiento limitado al rango
+    let newScrollLeft = carousel.scrollLeft + scrollAmount * direction;
+
+    if (newScrollLeft < 0) {
+      newScrollLeft = 0; // No permite ir más allá del principio
+    } else if (newScrollLeft > maxScrollLeft) {
+      newScrollLeft = maxScrollLeft; // No permite ir más allá del final
+    }
+
+    // Realiza el desplazamiento
+    carousel.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+
+    // Actualiza el índice de los indicadores
+    currentIndex = Math.round(newScrollLeft / scrollAmount);
+    updateIndicators();
+
+    // Reactiva el auto-scroll después de un retraso
+    setTimeout(() => (isAutoScrolling = true), 3000);
+  }
+
+  // Actualiza los indicadores según el índice actual
+  function updateIndicators() {
+    indicators.forEach((indicator, index) => {
+      if (index === currentIndex) {
+        indicator.classList.add("bg-orange-500");
+        indicator.classList.remove("bg-gray-400");
+      } else {
+        indicator.classList.remove("bg-orange-500");
+        indicator.classList.add("bg-gray-400");
+      }
+    });
   }
 
   // Función para iniciar el auto-scroll
   function startAutoScroll() {
     autoScrollInterval = setInterval(() => {
-      const scrollWidth = carousel.scrollWidth - carousel.clientWidth;
+      if (!isAutoScrolling) return; // No hace nada si está en modo manual
 
-      // Si el carrusel llega al final, vuelve al inicio
-      if (carousel.scrollLeft >= scrollWidth) {
+      const cardWidth = carousel.querySelector(".snap-center").offsetWidth;
+      const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
+      const scrollAmount = cardWidth + gap;
+      const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+      // Si el carrusel llega al final, reinicia al principio
+      if (carousel.scrollLeft + scrollAmount > maxScrollLeft) {
         carousel.scrollTo({ left: 0, behavior: "smooth" });
+        currentIndex = 0;
       } else {
-        scrollCarousel(1);
+        carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        currentIndex++;
       }
-    }, 2000); // Cambia el intervalo si es necesario
+
+      updateIndicators();
+    }, 3000);
   }
 
   // Función para detener el auto-scroll
@@ -145,4 +204,7 @@
   // Pausa el auto-scroll al interactuar
   carousel.addEventListener("mouseover", stopAutoScroll);
   carousel.addEventListener("mouseout", startAutoScroll);
+
+  // Inicializar los indicadores
+  updateIndicators();
 </script>
