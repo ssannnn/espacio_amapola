@@ -1,148 +1,105 @@
-<section class="relative bg-white py-16">
-  <div class="container mx-auto px-4 text-center">
-    <!-- Título de la Sección -->
-    <!-- Título de la Sección -->
-    <!-- Alternativa con saltos
-     <h1 class="text-4xl font-bold flex space-x-1">
-              <span class="hover:animate-bounce">T</span>
-              <span class="hover:animate-bounce">í</span>
-              <span class="hover:animate-bounce">t</span>
-              <span class="hover:animate-bounce">u</span>
-              <span class="hover:animate-bounce">l</span>
-              <span class="hover:animate-bounce">o</span>
-    </h1> -->
-<h2 class="relative inline-block text-4xl md:text-6xl font-serif font-semibold text-orange-2 mb-16 transition-transform duration-300 hover:scale-110">
-    Experiencias
-</h2>
+<footer class="relative bg-orange-2 py-12">
+  <!-- Contenedor principal -->
+  <div
+    class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center px-4"
+  >
+    <!-- Logo y nombre -->
+    <div
+      class="flex items-center justify-center md:justify-start p-4 bg-white-1 bg-opacity-10 rounded-lg space-x-4"
+    >
+      <img
+        src="/src/assets/images/logo_expanded_v2.svg"
+        alt="Logo Espacio Amapola"
+        class="h-12"
+      />
+      <span class="text-xl font-serif text-white-1">Espacio amapola</span>
+    </div>
 
-    <!-- Contenedor del Carrusel -->
-    <div class="relative">
-      <!-- Botón Izquierdo -->
-      <button
-        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
-        onclick="scrollCarousel(-1)"
-      >
-        ◀
-      </button>
-
-      <!-- Carrusel -->
-      <div
-        id="carousel"
-        class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth"
-        style="scrollbar-width: none; -ms-overflow-style: none;"
-      >
-        <style>
-          ::-webkit-scrollbar {
-            display: none;
-          }
-        </style>
-
-        <!-- Tarjetas -->
-        {[
-          {
-            name: "Muli & Juan",
-            testimony:
-              "Mi pasión es brindar apoyo y orientación personalizada a embarazadas y puérperas, ayudándoles a vivir esta etapa de forma plena y consciente.",
-            image: "/src/assets/images/posnatales_img.png",
-          },
-          {
-            name: "Sofía & Pedro",
-            testimony:
-              "Los encuentros nos ayudaron a fortalecer nuestra conexión y a prepararnos para este nuevo capítulo.",
-            image: "/src/assets/images/posnatales_img.png",
-          },
-          {
-            name: "Ana & Leo",
-            testimony:
-              "Gracias a este espacio, nos sentimos acompañados en cada paso de nuestro camino como padres.",
-            image: "/src/assets/images/posnatales_img.png",
-          },
-          {
-            name: "Muli & Juan",
-            testimony:
-              "Mi pasión es brindar apoyo y orientación personalizada a embarazadas y puérperas, ayudándoles a vivir esta etapa de forma plena y consciente.",
-            image: "/src/assets/images/posnatales_img.png",
-          },
-          {
-            name: "Sofía & Pedro",
-            testimony:
-              "Los encuentros nos ayudaron a fortalecer nuestra conexión y a prepararnos para este nuevo capítulo.",
-            image: "/src/assets/images/posnatales_img.png",
-          },
-          {
-            name: "Ana & Leo",
-            testimony:
-              "Gracias a este espacio, nos sentimos acompañados en cada paso de nuestro camino como padres.",
-            image: "/src/assets/images/posnatales_img.png",
-          },
-        ].map((testimony) => (
-          <div
-            class="snap-center flex-shrink-0 bg-white border-2 border-orange-500 rounded-lg shadow-lg p-6 w-[300px] md:w-[350px] transition-all duration-300 hover:bg-orange-100"
+    <!-- Enlaces de navegación -->
+    <nav
+      class="font-sans text-center text-white-1 text-opacity-80 md:text-left"
+    >
+      <ul class="space-y-2">
+        <li>
+          <a
+            href="#sobre-mi"
+            class="hover:text-white-1 focus:text-white-1 hover:scale-115"
+            aria-label="Ir a Sobre mí"
           >
-            <div class="flex flex-col items-center">
-              <!-- Imagen Circular -->
-              <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-                <img
-                  src={testimony.image}
-                  alt={`Foto de ${testimony.name}`}
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <!-- Nombre -->
-              <h3 class="text-xl font-semibold text-naranja-oscuro mb-4">
-                {testimony.name}
-              </h3>
-              <!-- Testimonio -->
-              <p class="text-gray-700 text-sm">{testimony.testimony}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+            Sobre mí
+          </a>
+        </li>
+        <li>
+          <a
+            href="#encuentros"
+            class="hover:text-white-1 focus:text-white-1 hover:scale-115"
+            aria-label="Ir a Encuentros"
+          >
+            Encuentros
+          </a>
+        </li>
+        <li>
+          <a
+            href="#contacto"
+            class="hover:text-white-1 focus:text-white-1 hover:scale-115"
+            aria-label="Ir a Contacto"
+          >
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-      <!-- Botón Derecho -->
-      <button
-        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-500 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
-        onclick="scrollCarousel(1)"
+    <!-- Redes Sociales -->
+    <div class="flex flex-col items-center md:items-end space-y-2">
+      <div
+        class="bg-white-1 bg-opacity-10 rounded-lg px-4 py-2 text-sm font-semibold text-white-1"
       >
-        ▶
-      </button>
+        Encontrame en:
+      </div>
+      <div class="flex space-x-4">
+        <a
+          href="#"
+          class="group hover:opacity-80 focus:opacity-80"
+          aria-label="Ir a Instagram"
+        >
+          <img
+            src="/src/assets/images/instagram-line.svg"
+            alt="Instagram"
+            class="h-6 w-6 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
+          />
+        </a>
+
+        <a
+          href="#"
+          class="group hover:opacity-80 focus:opacity-80"
+          aria-label="Ir a Spotify"
+        >
+          <img
+            src="/src/assets/images/spotify.svg"
+            alt="Spotify"
+            class="h-6 w-6 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
+          />
+        </a>
+      </div>
     </div>
   </div>
-</section>
 
-<script is:inline>
-  const carousel = document.getElementById("carousel");
-  let autoScrollInterval;
-
-  // Función para mover el carrusel manualmente
-  function scrollCarousel(direction) {
-    const scrollAmount = 350; // Ajusta según el tamaño de las tarjetas
-    carousel.scrollBy({ left: scrollAmount * direction, behavior: "smooth" });
-  }
-
-  // Función para iniciar el auto-scroll
-  function startAutoScroll() {
-    autoScrollInterval = setInterval(() => {
-      const scrollWidth = carousel.scrollWidth - carousel.clientWidth;
-
-      // Si el carrusel llega al final, vuelve al inicio
-      if (carousel.scrollLeft >= scrollWidth) {
-        carousel.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        scrollCarousel(1);
-      }
-    }, 2000); // Cambia el intervalo si es necesario
-  }
-
-  // Función para detener el auto-scroll
-  function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
-  }
-
-  // Inicia el auto-scroll al cargar
-  window.addEventListener("load", startAutoScroll);
-
-  // Pausa el auto-scroll al interactuar
-  carousel.addEventListener("mouseover", stopAutoScroll);
-  carousel.addEventListener("mouseout", startAutoScroll);
-</script>
+  <!-- Créditos -->
+  <div
+    class="text-center font-sans mt-12 text-sm text-white-1 flex items-center justify-center space-x-2 pb-6"
+  >
+    <span>Site by</span>
+    <a
+      href="https://github.com/tu-usuario"
+      class="group hover:opacity-80 focus:opacity-80"
+      aria-label="Ir al perfil de GitHub"
+    >
+      <img
+        src="/src/assets/images/github.svg"
+        alt="GitHub"
+        class="h-5 w-5 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
+      />
+    </a>
+  </div>
+</footer>
