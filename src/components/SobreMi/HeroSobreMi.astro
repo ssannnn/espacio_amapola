@@ -1,0 +1,57 @@
+---
+const title = "Hola! soy Rochi";
+const subtitle =
+  "Soy doula y puericultora, dedicada a acompañar a las familias en el camino de la maternidad y paternidad.";
+const description = `Soy una convencida de que abrazar la maternidad es abrazarse a uno mismo, al bebé, a la familia con lo que uno es, quiere y puede dar. 
+Agradezco haberme encontrado con el mundo de la maternidad y tener la posibilidad de acompañar a las familias en su camino, en que lo que elijan será lo mejor para ellos.`;
+---
+
+<section class="relative py-16 px-4 sm:px-8 mt-16">
+  <div class="container mx-auto flex flex-col md:flex-row items-center gap-8">
+    <!-- Imagen SVG -->
+    <div class="relative w-full md:w-1/2 flex justify-center">
+      <div class="relative w-64 h-64 md:w-80 md:h-80">
+        <!-- Imagen con máscara -->
+        <div class="relative w-full h-full">
+          <img
+            src="/src/assets/images/posnatales_img.png"
+            alt="Foto de Rochi"
+            class="w-full h-full object-cover"
+            style="mask: url('/src/assets/images/img_mask.svg'); -webkit-mask: url('/src/assets/images/img_mask.svg'); mask-size: cover; -webkit-mask-size: cover;"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Información -->
+    <div class="text-center md:text-left md:w-1/2">
+      <!-- Título -->
+      <div class="relative inline-block mb-6">
+        <h1
+          class="relative text-4xl md:text-5xl font-serif font-semibold text-orange-2 leading-tight"
+        >
+          {title}
+        </h1>
+      </div>
+
+      <!-- Subtítulo -->
+      <p class="text-lg md:text-xl text-gray-700 font-medium mb-6">
+        {subtitle}
+      </p>
+
+      <!-- Descripción -->
+      <p class="text-base text-gray-600 leading-relaxed mb-8">
+        {description}
+      </p>
+
+      <!-- Firma -->
+      <div class="mt-6">
+        <img
+          src="/src/assets/images/signature.svg"
+          alt="Firma de Rochi"
+          class="w-32 md:w-48 mx-auto md:ml-0"
+        />
+      </div>
+    </div>
+  </div>
+</section>
