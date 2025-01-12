@@ -1,105 +1,38 @@
-<footer class="relative bg-orange-2 py-12">
-  <!-- Contenedor principal -->
-  <div
-    class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center px-4"
-  >
-    <!-- Logo y nombre -->
-    <div
-      class="flex items-center justify-center md:justify-start p-4 bg-white-1 bg-opacity-10 rounded-lg space-x-4"
-    >
-      <img
-        src="/src/assets/images/logo_expanded_v2.svg"
-        alt="Logo Espacio Amapola"
-        class="h-12"
-      />
-      <span class="text-xl font-serif text-white-1">Espacio amapola</span>
-    </div>
-
-    <!-- Enlaces de navegación -->
-    <nav
-      class="font-sans text-center text-white-1 text-opacity-80 md:text-left"
-    >
-      <ul class="space-y-2">
-        <li>
-          <a
-            href="#sobre-mi"
-            class="hover:text-white-1 focus:text-white-1 hover:scale-115"
-            aria-label="Ir a Sobre mí"
-          >
-            Sobre mí
-          </a>
-        </li>
-        <li>
-          <a
-            href="#encuentros"
-            class="hover:text-white-1 focus:text-white-1 hover:scale-115"
-            aria-label="Ir a Encuentros"
-          >
-            Encuentros
-          </a>
-        </li>
-        <li>
-          <a
-            href="#contacto"
-            class="hover:text-white-1 focus:text-white-1 hover:scale-115"
-            aria-label="Ir a Contacto"
-          >
-            Contacto
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Redes Sociales -->
-    <div class="flex flex-col items-center md:items-end space-y-2">
-      <div
-        class="bg-white-1 bg-opacity-10 rounded-lg px-4 py-2 text-sm font-semibold text-white-1"
-      >
-        Encontrame en:
-      </div>
-      <div class="flex space-x-4">
-        <a
-          href="#"
-          class="group hover:opacity-80 focus:opacity-80"
-          aria-label="Ir a Instagram"
-        >
-          <img
-            src="/src/assets/images/instagram-line.svg"
-            alt="Instagram"
-            class="h-6 w-6 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
-          />
-        </a>
-
-        <a
-          href="#"
-          class="group hover:opacity-80 focus:opacity-80"
-          aria-label="Ir a Spotify"
-        >
-          <img
-            src="/src/assets/images/spotify.svg"
-            alt="Spotify"
-            class="h-6 w-6 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
-          />
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Créditos -->
-  <div
-    class="text-center font-sans mt-12 text-sm text-white-1 flex items-center justify-center space-x-2 pb-6"
-  >
-    <span>Site by</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  {plans.map((plan, index) => (
     <a
-      href="https://github.com/tu-usuario"
-      class="group hover:opacity-80 focus:opacity-80"
-      aria-label="Ir al perfil de GitHub"
+      href="/encuentros"
+      class="relative group block w-full h-[350px] md:h-[500px] rounded-lg overflow-hidden shadow-lg opacity-0 transform translate-y-10 transition-all duration-700"
+      style={`transition-delay: ${(index + 1) * 200}ms`}
+      data-animate
     >
-      <img
-        src="/src/assets/images/github.svg"
-        alt="GitHub"
-        class="h-5 w-5 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
-      />
+      <!-- Imagen -->
+      <div
+        class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+        style={`background-image: url(${plan.image}); filter: brightness(60%);`}
+      ></div>
+
+      <!-- Overlay para mejorar la legibilidad -->
+      <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+      <!-- Título Inicial -->
+      <div class="absolute inset-0 flex items-center justify-center">
+        <h3 class="text-4xl font-semibold font-serif text-white-1 group-hover:opacity-0 transition-opacity duration-500">
+          {plan.title}
+        </h3>
+      </div>
+
+      <!-- Texto al Hover -->
+      <div
+        class="absolute inset-0 bg-transparent flex flex-col justify-center items-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+      >
+        <p class="text-white-1">{plan.description}</p>
+        <button
+          class="mt-4 bg-orange-2 hover:bg-orange-3 text-white-1 font-semibold py-2 px-4 rounded"
+        >
+          Ver más
+        </button>
+      </div>
     </a>
-  </div>
-</footer>
+  ))}
+</div>
