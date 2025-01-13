@@ -20,5 +20,31 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# Windows-specific files
+Thumbs.db
+Desktop.ini
+
+# Linux-specific files
+*.swp
+*.swo
+
 # jetbrains setting folder
 .idea/
+
+# VS Code settings
+.vscode/
+
+# test outputs
+coverage/
+test-output/
+
+# linter/formatter settings
+.eslintrc.*
+.prettierrc.*
+
+# Astro-specific
+astro.config.js.map
+astro.config.mjs.map
+*.cache/
+*.map
+
