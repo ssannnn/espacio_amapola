@@ -1,54 +1,120 @@
-# Astro Starter Kit: Basics
+# Espacio Amapola
 
-```sh
-npm create astro@latest -- --template basics
+Welcome to **Espacio Amapola**, a personalized web platform offering guidance, resources, and support for individuals and families through different stages of maternity and parenting. This project was developed using Astro.js, Tailwind CSS, and a modern front-end development approach.
+
+---
+
+## Table of Contents
+
+- [Espacio Amapola](#espacio-amapola)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Setup and Installation](#setup-and-installation)
+  - [Usage](#usage)
+  - [Project Structure](#project-structure)
+  - [License](#license)
+
+---
+
+## Overview
+
+**Espacio Amapola** is designed to offer:
+
+- A professional online presence for a doula and lactation consultant.
+- Intuitive user interface for showcasing services, encounters, and personal history.
+- Responsive and SEO-optimized web pages to ensure accessibility on all devices.
+
+---
+
+## Features
+
+- **Dynamic Home Page**: Highlighting key services and values.
+- **About Section**: Sharing the professional journey and expertise.
+- **Encounter Modules**: Detailed descriptions of available services with interactive cards and animations.
+- **Fully Responsive Design**: Optimized for desktop, tablet, and mobile.
+- **Interactive Animations**: Smooth transitions and hover effects for enhanced user engagement.
+- **SEO Best Practices**: Proper meta tags, accessibility, and semantic HTML.
+
+---
+
+## Technologies Used
+
+- **[Astro.js](https://astro.build/)**: For building fast and efficient static sites.
+- **[Tailwind CSS](https://tailwindcss.com/)**: For a highly customizable and responsive design.
+- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**: Interactive elements and custom animations.
+
+---
+
+## Setup and Installation
+
+Follow these steps to set up the project locally:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/your-username/espacio-amapola.git
+   cd espacio-amapola
+   ```
+
+2. **Install Dependencies:**
+   Ensure you have Node.js installed, then run:
+   ```bash
+   npm install
+   ```
+
+3. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for Production:**
+   To generate the production build:
+   ```bash
+   npm run build
+   ```
+
+5. **Preview the Build:**
+   Test the build locally:
+   ```bash
+   npm run preview
+   ```
+
+---
+
+## Usage
+
+Once the development server is running, open your browser and navigate to:
+
+```
+http://localhost:3000
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Explore the site, make edits, and watch live changes.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Project Structure
 
-## 🚀 Project Structure
+Below is the directory structure of the project:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
-├── public/
-│   └── favicon.svg
+├── public/                   # Static assets (images, icons, etc.)
 ├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/           # Reusable components (Header, Footer, etc.)
+│   ├── layouts/              # Layout templates (BaseLayout, etc.)
+│   ├── pages/                # Individual pages (Home, About, Encounters, etc.)
+│   ├── styles/               # Global and component-specific styles
+│   └── assets/               # Project-specific images and SVGs
+├── astro.config.mjs          # Astro configuration
+├── tailwind.config.cjs       # Tailwind CSS configuration
+├── package.json              # Node.js dependencies and scripts
+└── README.md                 # Project documentation
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## License
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
