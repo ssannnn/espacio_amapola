@@ -1,17 +1,8 @@
 ---
 import BaseLayout from "../layouts/Layout.astro";
+import HeroEncuentros from "../components/Encuentros/HeroEncuentros.astro";
 ---
 
 <BaseLayout title="Encuentros">
-  <section class="container mx-auto p-8">
-    <h1 class="text-3xl font-bold mb-4">Próximos Encuentros</h1>
-    <ul class="mt-4 space-y-4">
-      <li class="border p-4 rounded">
-        <h2 class="text-2xl font-semibold">Encuentro de Lactancia Materna</h2>
-        <p>Fecha: 10 de Octubre, 2023</p>
-        <p>Lugar: Centro Comunitario XYZ</p>
-      </li>
-      <!-- Agrega más encuentros aquí -->
-    </ul>
-  </section>
+  <HeroEncuentros />
 </BaseLayout>
