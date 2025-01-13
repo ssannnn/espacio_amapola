@@ -1,0 +1,72 @@
+<section class="py-16">
+    <div class="container mx-auto px-6 text-center">
+      <!-- Título de la sección -->
+      <h2 class="text-4xl md:text-5xl font-serif font-semibold text-orange-2 mb-12">
+        Mi Formación
+      </h2>
+  
+      <!-- Contenedor de logos -->
+      <div class="flex flex-wrap justify-center gap-8 lg:gap-12">
+        {[
+          {
+            logo: "/src/assets/logos-formacion/edulacta.jpeg",
+            title: "Certificación en Puericultura",
+          },
+          {
+            logo: "/src/assets/logos-formacion/fundalam.png",
+            title: "Curso de Doula",
+          },
+          {
+            logo: "/src/assets/logos-formacion/images.jpeg",
+            title: "Capacitación en Lactancia",
+          },
+          {
+            logo: "/src/assets/logos-formacion/isma.png",
+            title: "Formación en Psicología Perinatal",
+          },
+          {
+            logo: "/src/assets/logos-formacion/logo-natal-diana-wechsler180x70.png",
+            title: "Certificación en Puericultura",
+          },
+          {
+            logo: "/src/assets/logos-formacion/PSICOLOGIA PERINALATAL.jpeg",
+            title: "Curso de Doula",
+          },
+        ].map((formation, index) => (
+          <div
+            class="relative w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 border-2 border-orange-2 rounded-full flex justify-center items-center shadow-lg transform transition-transform duration-500 hover:scale-110 group animate-bounce-slow"
+            style={`animation-delay: ${index * 0.3}s;`}
+          >
+            <!-- Logo -->
+            <img
+              src={formation.logo}
+              alt={formation.title}
+              class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain group-hover:opacity-0 transition-opacity duration-300"
+            />
+            <!-- Texto al hover -->
+            <div
+               class="absolute inset-0 flex items-center justify-center text-white-1 text-sm md:text-base group-hover:text-xs md:group-hover:text-xs lg:group-hover:text-xs font-sans opacity-0 group-hover:opacity-100 bg-orange-2 rounded-full group-hover:scale-150 transition-all duration-500"
+            >
+              {formation.title}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  
+  <style is:inline>
+    @keyframes bounce-slow {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  
+    .animate-bounce-slow {
+      animation: bounce-slow 2.5s ease-in-out infinite;
+    }
+  </style>
+  
