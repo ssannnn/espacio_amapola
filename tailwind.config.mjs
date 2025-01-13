@@ -10,8 +10,8 @@ export default {
 				sans: ['Montserrat', defaultTheme.fontFamily.sans]
 			},
 			backgroundImage: {
-				'hero-bg': "url('./src/assets/images/hero_img.png')",
-				'lugar': "url('./src/assets/images/lugar_img.png')"
+				'hero-bg': "url('/images/hero_img.png')",
+				'lugar': "url('/images/lugar_img.png')"
 			},
 			colors: {
 				orange: {
