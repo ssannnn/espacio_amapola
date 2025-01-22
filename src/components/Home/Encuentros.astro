@@ -1,18 +1,18 @@
 ---
 const plans = [
   {
-    title: "Prenatales",
-    description: "Acompañamiento personalizado durante tu embarazo.",
+    title: "Prenatal",
+    description: "Recursos y movimiento para transitar el camino hacia el nacimiento y primeros días.",
     image: "/images/prenatales_img.png",
   },
   {
     title: "En pareja",
-    description: "Encuentros diseñados para compartir y prepararse juntos.",
+    description: "Propuestas para prepararse juntos para la llegada de su bebé.",
     image: "/images/en_pareja_img.png",
   },
   {
-    title: "Postnatales",
-    description: "Soporte emocional y práctico en la etapa posparto.",
+    title: "Postparto",
+    description: "Despejamos dudas. Acompañamos dificultades durante la lactancia y el destete.",
     image: "/images/posnatales_img.png",
   },
 ];
@@ -31,13 +31,12 @@ const plans = [
         class="mb-12 opacity-0 transform translate-y-10 transition-all duration-700 text-center"
         data-animate
       >
-        <h2 class="text-4xl md:text-6xl font-semibold mb-6 font-serif text-orange-2 transition-transform duration-300 hover:scale-105">
+        <h2 class="text-4xl md:text-6xl font-semibold mb-6 font-serif text-gray-700 transition-transform duration-300 hover:scale-105">
           Encuentros
         </h2>
-        <p class="text-lg md:text-xl text-gray-700">
-          Diseñados para acompañarte en cada etapa de la maternidad en un entorno virtual <br
-          />
-          a través de Zoom o Google Meet.
+        <p class="text-base md:text-xl text-gray-700">
+          Preparados para acompañarte, de manera presencial y/o virtual <br />
+          en el camino de la maternidad.
         </p>
       </div>
   
@@ -56,7 +55,7 @@ const plans = [
             ></div>
       
             <!-- Overlay para mejorar la legibilidad -->
-            <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-65 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       
             <!-- Título Inicial -->
             <div class="absolute inset-0 flex items-center justify-center">
@@ -71,7 +70,7 @@ const plans = [
             >
               <p class="text-white-1">{plan.description}</p>
               <button
-                class="mt-4 bg-orange-2 hover:bg-orange-3 text-white-1 font-semibold py-2 px-4 rounded"
+                class="mt-4 bg-orange-2 hover:bg-orange-3 text-white-1 font-semibold py-2 px-4 rounded-full"
               >
                 Ver más
               </button>
