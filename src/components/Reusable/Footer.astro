@@ -1,3 +1,9 @@
+---
+import GitHubIcon from "../Icons/GitHubIcon";
+import FacebookIcon from "../Icons/FacebookIcon";
+import InstagramIcon from "../Icons/InstagramIcon";
+---
+
 <footer class="relative bg-orange-2 py-12">
   <!-- Contenedor principal -->
   <div
@@ -51,32 +57,28 @@
     <!-- Redes Sociales -->
     <div class="flex flex-col items-center md:items-end space-y-2">
       <div
-        class="bg-white-1 bg-opacity-10 rounded-lg px-4 py-2 text-sm font-semibold text-white-1"
+        class="bg-white-1 bg-opacity-10 rounded-lg px-4 py-2 text-sm font-medium text-white-1"
       >
         Encontrame en:
       </div>
-      <div class="flex space-x-4">
+      <div class="flex space-x-2">
         <a
           href="#"
           class="group hover:opacity-80 focus:opacity-80"
           aria-label="Ir a Instagram"
         >
-          <img
-            src="/images/instagram-line.svg"
-            alt="Instagram"
-            class="h-6 w-6 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
+          <InstagramIcon
+            className="fill-white-1 h-5 w-5 opacity-60 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
           />
         </a>
 
         <a
           href="#"
           class="group hover:opacity-80 focus:opacity-80"
-          aria-label="Ir a Spotify"
+          aria-label="Ir a Facebook"
         >
-          <img
-            src="/images/spotify.svg"
-            alt="Spotify"
-            class="h-6 w-6 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
+          <FacebookIcon
+            className="fill-white-1 h-5 w-5 opacity-60 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
           />
         </a>
       </div>
@@ -93,10 +95,8 @@
       class="group hover:opacity-80 focus:opacity-80"
       aria-label="Ir al perfil de GitHub"
     >
-      <img
-        src="/images/github.svg"
-        alt="GitHub"
-        class="h-5 w-5 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
+      <GitHubIcon
+        className="h-5 w-5 opacity-50 group-hover:opacity-100 group-hover:brightness-200 transition duration-300"
       />
     </a>
   </div>
