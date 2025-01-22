@@ -1,3 +1,8 @@
+---
+const whatsappNumber = "+5491159401216";
+import WhatsAppIcon from "../Icons/WhatsappIcon";
+---
+
 <section class="flex items-center justify-center py-12 px-4">
   <div
     class="max-w-2xl text-center bg-orange-2 text-white-1 rounded-2xl p-8 shadow-lg"
@@ -14,9 +19,10 @@
 
     <!-- Botón -->
     <a
-      href="https://wa.me/tu-numero-de-whatsapp"
-      class="inline-flex items-center justify-center bg-white-1 text-orange-2 hover:bg-orange-600 hover:text-white-1 font-sans py-3 px-6 rounded-full shadow-md transition-all duration-300"
+      href={`https://wa.me/${whatsappNumber}`}
+      class="inline-flex items-center justify-center bg-orange-1 text-orange-600 hover:text-white-1 hover:bg-orange-600 hover:font-medium font-sans py-3 px-6 rounded-full shadow-md transition-all duration-300"
     >
+      <WhatsAppIcon className="h-5 w-5 mr-2 fill-current" />
       Reservar mi lugar
     </a>
   </div>
