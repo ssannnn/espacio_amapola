@@ -22,7 +22,7 @@ const whatsappNumber = "+5491159401216";
     <!-- Logo -->
     <a href="/" class="flex items-center">
       <img src="/images/logo_s.png" alt="Logo" class="h-8 mr-2" />
-      <span class="text-lg font-semibold text-orange-2 font-serif"
+      <span class="text-lg font-semibold text-orange-3 font-serif"
         >Espacio Amapola</span
       >
     </a>
@@ -30,7 +30,7 @@ const whatsappNumber = "+5491159401216";
     <!-- Menú hamburguesa -->
     <button
       id="hamburger-button"
-      class="md:hidden text-orange-2 z-50"
+      class="md:hidden text-orange-3 z-50"
       aria-label="Abrir menú"
     >
       <svg
@@ -56,7 +56,7 @@ const whatsappNumber = "+5491159401216";
             <li>
               <a
                 href={item.href}
-                class={`text-gray-700 hover:text-orange-2 hover:scale-105 transition-transform duration-300 focus:outline-none  ${
+                class={`text-gray-700 hover:text-orange-3 hover:scale-105 transition-transform duration-300 focus:outline-none  ${
                   currentUrl === item.href ? "font-semibold" : ""
                 }`}
               >
@@ -74,7 +74,7 @@ const whatsappNumber = "+5491159401216";
         href={`https://wa.me/${whatsappNumber}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center bg-orange-2 text-white-1 px-4 py-2 rounded-full hover:bg-orange-1 hover:font-medium hover:text-orange-600"
+        class="flex items-center bg-orange-3 text-white-1 px-4 py-2 rounded-full hover:brightness-125"
       >
         <!-- Componente WhatsAppIcon -->
         <WhatsAppIcon className="h-5 w-5 mr-2 fill-current" />
