@@ -1,7 +1,13 @@
 ---
 import WaveMask from "../Reusable/WaveMask";
 
-const plans = [
+interface Plan {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const plans: Plan[] = [
   {
     title: "Prenatal",
     description: "Recursos y movimiento para transitar el camino hacia el nacimiento y primeros días.",
@@ -21,91 +27,85 @@ const plans = [
 ---
 
 <section class="relative py-16">
-    <!-- Wave Intersect -->
-    <WaveMask
-      width="100%"
-      height="74"
-      color="#f79561"
-      className="absolute top-0 w-full h-auto -translate-y-[2px] transform rotate-180"
-    />
-    
-    <div class="container mx-auto px-4 mt-14">
-      <!-- Título de la Sección -->
-      <div
-        class="mb-12 opacity-0 transform translate-y-10 transition-all duration-700 text-center"
-        data-animate
-      >
-        <h2 class="text-4xl md:text-6xl font-semibold mb-6 font-serif text-gray-700 transition-transform duration-300 hover:scale-105">
-          Encuentros
-        </h2>
-        <p class="text-base md:text-xl text-gray-700">
-          Preparados para acompañarte, de manera presencial y/o virtual <br />
-          en el camino de la maternidad.
-        </p>
-      </div>
-  
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {plans.map((plan, index) => (
-          <a
-            href="/encuentros"
-            class="relative group block w-full h-[350px] md:h-[500px] rounded-lg overflow-hidden shadow-lg opacity-0 transform translate-y-10 transition-all duration-700"
-            style={`transition-delay: ${(index + 1) * 200}ms`}
-            data-animate
-          >
-            <!-- Imagen -->
-            <div
-              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style={`background-image: url(${plan.image}); filter: brightness(60%);`}
-            ></div>
-      
-            <!-- Overlay para mejorar la legibilidad -->
-            <div class="absolute inset-0 bg-black bg-opacity-65 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      
-            <!-- Título Inicial -->
-            <div class="absolute inset-0 flex items-center justify-center">
-              <h3 class="text-4xl font-semibold font-serif text-white-1 group-hover:opacity-0 transition-opacity duration-500">
-                {plan.title}
-              </h3>
-            </div>
-      
-            <!-- Texto al Hover -->
-            <div
-              class="absolute inset-0 bg-transparent flex flex-col justify-center items-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            >
-              <p class="text-white-1">{plan.description}</p>
-              <button
-                class="mt-4 bg-orange-2 hover:bg-orange-3 text-white-1 font-semibold py-2 px-4 rounded-full"
-              >
-                Ver más
-              </button>
-            </div>
-          </a>
-        ))}
-      </div>
-      
-</section>
-      
-  
-  <script is:inline>
-    window.addEventListener("load", () => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.remove("opacity-0", "translate-y-10");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.1,
-        }
-      );
-  
-      const animateElements = document.querySelectorAll("[data-animate]");
-      animateElements.forEach((el) => observer.observe(el));
-    });
-  </script>
+  <!-- Wave Intersect -->
+  <WaveMask
+    width="100%"
+    height="74"
+    color="#f79561"
+    className="absolute top-0 w-full h-auto -translate-y-[2px] transform rotate-180"
+  />
 
-  
- 
+  <div class="container mx-auto px-4 mt-14">
+    <!-- Título de la Sección -->
+    <div
+      class="mb-12 opacity-0 transform translate-y-10 transition-all duration-700 text-center"
+      data-animate
+    >
+      <h2 class="text-4xl md:text-6xl font-semibold mb-6 font-serif text-gray-700 transition-transform duration-300 hover:scale-105">
+        Encuentros
+      </h2>
+      <p class="text-base md:text-xl text-gray-700">
+        Preparados para acompañarte, de manera presencial y/o virtual <br />
+        en el camino de la maternidad.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {plans.map((plan, index) => (
+        <a
+          href="/encuentros"
+          class="relative group block w-full h-[350px] md:h-[500px] rounded-lg overflow-hidden shadow-lg opacity-0 transform translate-y-10 transition-all duration-700"
+          style={`transition-delay: ${(index + 1) * 200}ms`}
+          data-animate
+        >
+          <!-- Imagen -->
+          <div
+            class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+            style={`background-image: url(${plan.image}); filter: brightness(60%);`}
+          ></div>
+
+          <!-- Overlay para mejorar la legibilidad -->
+          <div class="absolute inset-0 bg-black bg-opacity-65 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <!-- Título Inicial -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <h3 class="text-4xl font-semibold font-serif text-white-1 group-hover:opacity-0 transition-opacity duration-500">
+              {plan.title}
+            </h3>
+          </div>
+
+          <!-- Texto al Hover -->
+          <div
+            class="absolute inset-0 bg-transparent flex flex-col justify-center items-center text-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          >
+            <p class="text-white-1">{plan.description}</p>
+            <button
+              class="mt-4 bg-orange-2 hover:bg-orange-3 text-white-1 font-semibold py-2 px-4 rounded-full"
+            >
+              Ver más
+            </button>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  window.addEventListener("load", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-10");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const animateElements = document.querySelectorAll("[data-animate]");
+    animateElements.forEach((el) => observer.observe(el));
+  });
+</script>
