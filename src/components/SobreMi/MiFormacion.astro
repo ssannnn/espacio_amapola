@@ -1,40 +1,48 @@
 <section class="py-16">
     <div class="container mx-auto px-6 text-center">
       <!-- Título de la sección -->
-      <h2 class="text-4xl md:text-5xl font-serif font-semibold text-orange-2 mb-12">
+      <h2 class="text-4xl md:text-5xl font-serif font-semibold text-gray-700 mb-12">
         Mi Formación
       </h2>
   
       <!-- Contenedor de logos -->
       <div class="flex flex-wrap justify-center gap-8 lg:gap-12">
         {[
-          {
-            logo: "/logos-formacion/edulacta.jpeg",
-            title: "Certificación en Puericultura",
-          },
-          {
+           {
             logo: "/logos-formacion/fundalam.png",
-            title: "Curso de Doula",
+            title: "FUNDALAM - Tecnicatura en Puericultura",
           },
           {
-            logo: "/logos-formacion/images.jpeg",
-            title: "Capacitación en Lactancia",
+          logo: "/logos-formacion/logo-natal-diana-wechsler180x70.png",
+            title: "NATAL - Doula",
           },
           {
             logo: "/logos-formacion/isma.png",
-            title: "Formación en Psicología Perinatal",
+            title: "ISMA - Profesorado de nivel inicial",
+          },
+          {
+            logo: "/logos-formacion/fundalam.png",
+            title: "Escuela Hugo Ardiles - Terapeuta corporal en gimnasia en centros de energía",
+          },
+          {
+            logo: "/logos-formacion/images.jpeg",
+            title: "Psicología Perinatal Argentina - Formacion en salud mental perinatal",
+          },
+          {
+            logo: "/logos-formacion/isma.png",
+            title: "PARAMANA DOULA COURSE - Doula",
           },
           {
             logo: "/logos-formacion/logo-natal-diana-wechsler180x70.png",
-            title: "Certificación en Puericultura",
+            title: "Método Frida Kaplan - Docente",
           },
           {
             logo: "/logos-formacion/PSICOLOGIA PERINALATAL.jpeg",
-            title: "Curso de Doula",
+            title: "PARTO POSITIVO - Profesorado de Hipnoparto",
           },
         ].map((formation, index) => (
           <div
-            class="relative w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 border-2 border-orange-2 rounded-full flex justify-center items-center shadow-lg transform transition-transform duration-500 hover:scale-110 group animate-bounce-slow"
+            class="relative w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full flex justify-center items-center shadow-2xl transform transition-transform duration-500 hover:scale-110 group animate-bounce-slow"
             style={`animation-delay: ${index * 0.3}s;`}
           >
             <!-- Logo -->
@@ -45,7 +53,7 @@
             />
             <!-- Texto al hover -->
             <div
-               class="absolute inset-0 flex items-center justify-center text-white-1 text-sm md:text-base group-hover:text-xs md:group-hover:text-xs lg:group-hover:text-xs font-sans opacity-0 group-hover:opacity-100 bg-orange-2 rounded-full group-hover:scale-150 transition-all duration-500"
+               class="absolute inset-0 flex items-center justify-center text-orange-3 group-hover:text-xs md:group-hover:text-xs lg:group-hover:text-xs group-hover:font-medium font-sans opacity-0 group-hover:opacity-100 bg-orange-100 border-orange-3 rounded-full group-hover:scale-125 transition-all duration-500"
             >
               {formation.title}
             </div>
