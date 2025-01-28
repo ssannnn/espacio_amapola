@@ -6,58 +6,50 @@ import FacebookIcon from "../Icons/FacebookIcon";
 const title: string = "Contactame";
 const description: string =
   "Si te quedaste con alguna duda, escribime o contactame para coordinar un encuentro virtual sin costo para conversar acerca de lo que estés necesitando.";
-const faqTitle: string = "Preguntas Frecuentes";
 
-interface FAQ {
+interface FAQItem {
   question: string;
   answer: string;
 }
 
-const faqs: FAQ[] = [
+const faqItems: FAQItem[] = [
   {
-    question: "¿Dónde se realizan los encuentros presenciales?",
+    question: "¿Dónde se realizan los encuentros?",
     answer:
-      "Los encuentros presenciales se llevan a cabo en CABA, en un espacio cómodo y accesible para las familias.",
+      "Los encuentros se realizan en modalidad virtual o presencial en la zona de CABA.",
   },
   {
-    question: "¿Se pueden hacer encuentros virtuales?",
+    question: "¿Cuál es la duración de los encuentros?",
     answer:
-      "¡Por supuesto! Todos los encuentros pueden ser realizados de manera virtual a través de videollamada.",
+      "La duración depende del tipo de encuentro, pero generalmente oscilan entre 1 y 1.5 horas.",
   },
   {
-    question: "¿Cuánto tiempo duran los encuentros?",
+    question: "¿Puedo coordinar un horario flexible?",
     answer:
-      "La duración depende del tipo de encuentro, pero generalmente van de 1 a 1.5 horas.",
-  },
-  {
-    question: "¿Qué necesito para asistir a un encuentro virtual?",
-    answer:
-      "Solo necesitas una conexión estable a internet y un dispositivo con cámara y micrófono.",
+      "¡Por supuesto! Trabajamos para adaptarnos a tus necesidades y horarios.",
   },
 ];
 ---
 
 <section class="py-24">
-  <div class="container mx-auto px-6 space-y-12">
+  <div class="container mx-auto px-6">
     <!-- Título y descripción -->
-    <div class="text-center">
-      <h1
-        class="text-4xl md:text-5xl font-serif font-semibold text-orange-2 mb-6"
-      >
-        {title}
-      </h1>
-      <p class="text-lg md:text-xl font-sans text-gray-600">
-        {description}
-      </p>
-    </div>
+    <h1
+      class="text-4xl md:text-5xl font-serif font-semibold text-gray-700 text-center mb-4"
+    >
+      {title}
+    </h1>
+    <p class="text-lg md:text-xl font-sans text-gray-700 text-center mb-12">
+      {description}
+    </p>
 
-    <!-- Formulario e imagen -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <!-- Formulario e imagen del mapa -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
       <!-- Formulario -->
       <form
         action="https://formspree.io/f/your-form-id"
         method="POST"
-        class="bg-white rounded-lg shadow-lg p-6 space-y-6"
+        class="bg-orange-200 rounded-lg shadow-lg p-6 space-y-6"
       >
         <!-- Campo Nombre -->
         <div>
@@ -72,7 +64,7 @@ const faqs: FAQ[] = [
             id="name"
             name="name"
             required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65"
             placeholder="Ingresa tu nombre completo"
           />
         </div>
@@ -90,7 +82,7 @@ const faqs: FAQ[] = [
             id="email"
             name="email"
             required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65"
             placeholder="Ingresa tu correo electrónico"
           />
         </div>
@@ -108,7 +100,7 @@ const faqs: FAQ[] = [
             name="message"
             rows="5"
             required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65"
             placeholder="Escribe tu mensaje aquí"></textarea>
         </div>
 
@@ -116,52 +108,50 @@ const faqs: FAQ[] = [
         <div class="text-center">
           <button
             type="submit"
-            class="px-6 py-3 bg-orange-2 text-white-1 rounded-full font-medium font-sans hover:bg-opacity-90 transition"
+            class="px-6 py-3 bg-orange-3 text-white-1 rounded-full font-medium font-sans hover:bg-opacity-90 transition"
           >
             Enviar mensaje
           </button>
         </div>
 
         <!-- Mensaje de confirmación -->
-        <p id="confirmationMessage" class="hidden text-green-600 text-sm mt-4">
-          ¡Tu mensaje ha sido enviado con éxito! Te responderemos pronto.
+        <p
+          id="confirmationMessage"
+          class="text-green-600 text-center mt-4 hidden"
+        >
+          ¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto
+          contigo pronto.
         </p>
       </form>
 
-      <!-- Mapa -->
-      <div class="relative bg-gray-200 rounded-lg shadow-lg overflow-hidden">
+      <!-- Imagen del mapa -->
+      <div class="flex flex-col items-center p-6">
         <img
           src="/images/contact_map.svg"
-          alt="Ubicación de encuentros"
-          class="w-full h-80 object-cover"
+          alt="Mapa indicando la zona de encuentros"
+          class="rounded-lg object-cover w-full h-full"
         />
-        <div
-          class="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center"
-        >
-          <p class="text-white-1 text-lg md:text-xl text-center px-6">
-            La ubicación es aproximada y puede variar según el encuentro.
-            Contactame para más detalles.
-          </p>
-        </div>
+        <p class="text-sm font-sans text-gray-700 mt-4 text-center">
+          Zona de encuentros presenciales: Recoleta, CABA. Contactanos para
+          coordinar una ubicación exacta.
+        </p>
       </div>
     </div>
 
-    <!-- Preguntas frecuentes -->
-    <div>
-      <h2
-        class="text-3xl font-serif font-semibold text-gray-700 mb-8 text-center"
-      >
-        {faqTitle}
+    <!-- FAQ -->
+    <div class="bg-white rounded-lg shadow-lg p-6">
+      <h2 class="text-2xl font-serif font-semibold text-gray-700 mb-6">
+        Preguntas Frecuentes
       </h2>
-      <div class="space-y-6">
+      <div class="space-y-4">
         {
-          faqs.map((faq) => (
-            <details class="bg-gray-100 rounded-lg p-4 border border-gray-300">
-              <summary class="font-semibold text-gray-800 cursor-pointer">
+          faqItems.map((faq, index) => (
+            <div class="p-4 bg-orange-50 rounded-md border border-gray-300">
+              <h3 class="text-lg font-semibold text-gray-700 mb-2">
                 {faq.question}
-              </summary>
-              <p class="text-sm text-gray-700 mt-2">{faq.answer}</p>
-            </details>
+              </h3>
+              <p class="text-sm text-gray-700">{faq.answer}</p>
+            </div>
           ))
         }
       </div>
@@ -174,7 +164,7 @@ const faqs: FAQ[] = [
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
-        class="text-gray-600 hover:text-orange-2 transition"
+        class="text-gray-700 hover:text-orange-3 transition"
       >
         <WhatsAppIcon className="h-6 w-6 fill-current" />
       </a>
@@ -183,7 +173,7 @@ const faqs: FAQ[] = [
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
-        class="text-gray-600 hover:text-orange-2 transition"
+        class="text-gray-700 hover:text-orange-3 transition"
       >
         <InstagramIcon className="h-6 w-6 fill-current" />
       </a>
@@ -192,7 +182,7 @@ const faqs: FAQ[] = [
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Facebook"
-        class="text-gray-600 hover:text-orange-2 transition"
+        class="text-gray-700 hover:text-orange-3 transition"
       >
         <FacebookIcon className="h-6 w-6 fill-current" />
       </a>
