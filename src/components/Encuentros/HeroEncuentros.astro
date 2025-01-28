@@ -2,6 +2,12 @@
 const title = "Encuentros pensados para que te lleves lo que estas necesitando";
 const subtitle = "Personalizados, presencial en CABA y/o virtual";
 
+const whatsappNumber = "5491132873292"; // Reemplazar por el número real
+const generateWhatsAppURL = (plan: string, subProposal: string) =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hola Rochi, me interesa el encuentro "${subProposal}" del plan "${plan}". Me gustaría recibir más información.`
+  )}`;
+
 interface SubProposal {
   title: string;
   description: string;
@@ -131,43 +137,54 @@ const plans: Plan[] = [
 
             <!-- Subpropuestas -->
             <div class="space-y-6">
-              {plan.subProposals.map((sub) => (
-                <div
-                  class="p-5 bg-orange-200 rounded-lg md:hover:shadow-2xl md:hover:scale-105 transition-all duration-300 ease-out" 
-                >
-                  <div class="flex justify-center mb-2">
-                    <h3 class="text-xl font-serif text-gray-900 mb-4">{sub.title}</h3>
-                  </div>
-                  <p class="text-sm font-sans text-gray-800 mb-4">{sub.description}</p>
+              {plan.subProposals.map((sub) => {
+                // Generar el enlace de WhatsApp según cada plan
+                const whatsappMessage = `Hola, Rochi! Quisiera reservar la propuesta "${sub.title}" de los encuentros "${plan.title}".`;
+                const whatsappLink = `https://wa.me/1132873292?text=${encodeURIComponent(whatsappMessage)}`;
 
-                  <!-- Subitems destacados -->
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm font-sans">
-                    <div class="flex items-center space-x-2">
-                      <img src="/icons/calendar.svg" alt="Calendario" class="w-5 h-5" />
-                      <p><strong>Encuentros:</strong> {sub.sessions}</p>
+                return (
+                  <div
+                    class="p-5 bg-orange-200 rounded-lg md:hover:shadow-2xl md:hover:scale-105 transition-all duration-300 ease-out"
+                  >
+                    <div class="flex justify-center mb-2">
+                      <h3 class="text-xl font-serif text-gray-900 mb-4">{sub.title}</h3>
                     </div>
-                    <div class="flex items-center space-x-2">
-                      <img src="/icons/frequency.svg" alt="Frecuencia" class="w-5 h-5" />
-                      <p><strong>Frecuencia:</strong> {sub.frequency}</p>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                      <img src="/icons/clock.svg" alt="Duración" class="w-5 h-5" />
-                      <p><strong>Duración:</strong> {sub.duration}</p>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                      <img src="/icons/money.svg" alt="Precio" class="w-5 h-5" />
-                      <p><strong>Precio:</strong> {sub.price}</p>
-                    </div>
-                  </div>
+                    <p class="text-sm font-sans text-gray-800 mb-4">{sub.description}</p>
 
-                  <!-- Botón de Reservar -->
-                  <div class="text-center mt-8">
-                    <button class="px-5 py-2 bg-orange-3 text-white-1 font-normal font-sans rounded-full md:hover:brightness-125 transition">
-                      Reservar
-                    </button>
+                    <!-- Subitems destacados -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm font-sans">
+                      <div class="flex items-center space-x-2">
+                        <img src="/icons/calendar.svg" alt="Calendario" class="w-5 h-5" />
+                        <p><strong>Encuentros:</strong> {sub.sessions}</p>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <img src="/icons/frequency.svg" alt="Frecuencia" class="w-5 h-5" />
+                        <p><strong>Frecuencia:</strong> {sub.frequency}</p>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <img src="/icons/clock.svg" alt="Duración" class="w-5 h-5" />
+                        <p><strong>Duración:</strong> {sub.duration}</p>
+                      </div>
+                      <div class="flex items-center space-x-2">
+                        <img src="/icons/money.svg" alt="Precio" class="w-5 h-5" />
+                        <p><strong>Precio:</strong> {sub.price}</p>
+                      </div>
+                    </div>
+
+                    <!-- Botón de Reservar -->
+                    <div class="text-center mt-8">
+                      <a
+                        href={whatsappLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-5 py-2 bg-orange-3 text-white-1 font-normal font-sans rounded-full md:hover:brightness-125 transition"
+                      >
+                        Reservar
+                      </a>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
