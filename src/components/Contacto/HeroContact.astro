@@ -1,103 +1,182 @@
 ---
-const title = "Contactame";
-const description =
-  "Estoy aquí para resolver tus dudas y acompañarte en este viaje.";
+import WhatsAppIcon from "../Icons/WhatsappIcon";
+import InstagramIcon from "../Icons/InstagramIcon";
+import FacebookIcon from "../Icons/FacebookIcon";
+
+const title: string = "Contactame";
+const description: string =
+  "Si te quedaste con alguna duda, escribime o contactame para coordinar un encuentro virtual sin costo para conversar acerca de lo que estés necesitando.";
+const faqTitle: string = "Preguntas Frecuentes";
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQ[] = [
+  {
+    question: "¿Dónde se realizan los encuentros presenciales?",
+    answer:
+      "Los encuentros presenciales se llevan a cabo en CABA, en un espacio cómodo y accesible para las familias.",
+  },
+  {
+    question: "¿Se pueden hacer encuentros virtuales?",
+    answer:
+      "¡Por supuesto! Todos los encuentros pueden ser realizados de manera virtual a través de videollamada.",
+  },
+  {
+    question: "¿Cuánto tiempo duran los encuentros?",
+    answer:
+      "La duración depende del tipo de encuentro, pero generalmente van de 1 a 1.5 horas.",
+  },
+  {
+    question: "¿Qué necesito para asistir a un encuentro virtual?",
+    answer:
+      "Solo necesitas una conexión estable a internet y un dispositivo con cámara y micrófono.",
+  },
+];
 ---
 
-<section class="py-20 px-6">
-  <div class="container mx-auto max-w-4xl text-center">
-    <!-- Título de la sección -->
-    <h1
-      class="text-4xl md:text-5xl font-serif font-semibold text-orange-2 mb-6"
-    >
-      {title}
-    </h1>
-    <p class="text-lg md:text-xl font-sans text-gray-600 mb-12">
-      {description}
-    </p>
-
-    <!-- Formulario de contacto -->
-    <form
-      action="https://formspree.io/f/your-form-id"
-      method="POST"
-      class="bg-white rounded-lg shadow-lg p-6 space-y-6 mb-12"
-    >
-      <!-- Campo Nombre -->
-      <div>
-        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
-          Nombre completo
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
-          placeholder="Ingresa tu nombre completo"
-        />
-      </div>
-
-      <!-- Campo Email -->
-      <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-          Correo electrónico
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
-          placeholder="Ingresa tu correo electrónico"
-        />
-      </div>
-
-      <!-- Campo Mensaje -->
-      <div>
-        <label
-          for="message"
-          class="block text-sm font-medium text-gray-700 mb-2"
-        >
-          Mensaje
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
-          placeholder="Escribe tu mensaje aquí"></textarea>
-      </div>
-
-      <!-- Botón Enviar -->
-      <div class="text-center">
-        <button
-          type="submit"
-          class="px-6 py-3 bg-orange-2 text-white-1 rounded-full font-medium font-sans hover:bg-opacity-90 transition"
-        >
-          Enviar mensaje
-        </button>
-      </div>
-    </form>
-
-    <!-- Mensaje personal -->
-    <div class="mb-12">
-      <p class="text-lg font-serif text-gray-600 italic">
-        "Cada consulta es un paso más en este hermoso viaje hacia la maternidad.
-        Estoy aquí para acompañarte con cuidado y dedicación."
+<section class="py-24">
+  <div class="container mx-auto px-6 space-y-12">
+    <!-- Título y descripción -->
+    <div class="text-center">
+      <h1
+        class="text-4xl md:text-5xl font-serif font-semibold text-orange-2 mb-6"
+      >
+        {title}
+      </h1>
+      <p class="text-lg md:text-xl font-sans text-gray-600">
+        {description}
       </p>
     </div>
 
+    <!-- Formulario e imagen -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+      <!-- Formulario -->
+      <form
+        action="https://formspree.io/f/your-form-id"
+        method="POST"
+        class="bg-white rounded-lg shadow-lg p-6 space-y-6"
+      >
+        <!-- Campo Nombre -->
+        <div>
+          <label
+            for="name"
+            class="block text-sm font-medium text-gray-700 mb-2"
+          >
+            Nombre completo
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
+            placeholder="Ingresa tu nombre completo"
+          />
+        </div>
+
+        <!-- Campo Email -->
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-gray-700 mb-2"
+          >
+            Correo electrónico
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
+            placeholder="Ingresa tu correo electrónico"
+          />
+        </div>
+
+        <!-- Campo Mensaje -->
+        <div>
+          <label
+            for="message"
+            class="block text-sm font-medium text-gray-700 mb-2"
+          >
+            Mensaje
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-2"
+            placeholder="Escribe tu mensaje aquí"></textarea>
+        </div>
+
+        <!-- Botón Enviar -->
+        <div class="text-center">
+          <button
+            type="submit"
+            class="px-6 py-3 bg-orange-2 text-white-1 rounded-full font-medium font-sans hover:bg-opacity-90 transition"
+          >
+            Enviar mensaje
+          </button>
+        </div>
+
+        <!-- Mensaje de confirmación -->
+        <p id="confirmationMessage" class="hidden text-green-600 text-sm mt-4">
+          ¡Tu mensaje ha sido enviado con éxito! Te responderemos pronto.
+        </p>
+      </form>
+
+      <!-- Mapa -->
+      <div class="relative bg-gray-200 rounded-lg shadow-lg overflow-hidden">
+        <img
+          src="/images/contact_map.svg"
+          alt="Ubicación de encuentros"
+          class="w-full h-80 object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-black bg-opacity-10 flex items-center justify-center"
+        >
+          <p class="text-white-1 text-lg md:text-xl text-center px-6">
+            La ubicación es aproximada y puede variar según el encuentro.
+            Contactame para más detalles.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preguntas frecuentes -->
+    <div>
+      <h2
+        class="text-3xl font-serif font-semibold text-gray-700 mb-8 text-center"
+      >
+        {faqTitle}
+      </h2>
+      <div class="space-y-6">
+        {
+          faqs.map((faq) => (
+            <details class="bg-gray-100 rounded-lg p-4 border border-gray-300">
+              <summary class="font-semibold text-gray-800 cursor-pointer">
+                {faq.question}
+              </summary>
+              <p class="text-sm text-gray-700 mt-2">{faq.answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+
     <!-- Redes sociales -->
-    <div class="flex justify-center space-x-6">
+    <div class="flex justify-center space-x-6 mt-12">
       <a
         href="https://wa.me/5491112345678"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
-        class="text-gray-600 group-hover:text-orange-2 transition"
+        class="text-gray-600 hover:text-orange-2 transition"
       >
-        <img src="/images/whatsapp.svg" alt="WhatsApp" class="w-8 h-8" />
+        <WhatsAppIcon className="h-6 w-6 fill-current" />
       </a>
       <a
         href="https://instagram.com/tuusuario"
@@ -106,7 +185,7 @@ const description =
         aria-label="Instagram"
         class="text-gray-600 hover:text-orange-2 transition"
       >
-        <img src="/images/instagram-line.svg" alt="Instagram" class="w-8 h-8" />
+        <InstagramIcon className="h-6 w-6 fill-current" />
       </a>
       <a
         href="https://facebook.com/tuusuario"
@@ -115,7 +194,7 @@ const description =
         aria-label="Facebook"
         class="text-gray-600 hover:text-orange-2 transition"
       >
-        <img src="/images/facebook.svg" alt="Facebook" class="w-8 h-8" />
+        <FacebookIcon className="h-6 w-6 fill-current" />
       </a>
     </div>
   </div>
