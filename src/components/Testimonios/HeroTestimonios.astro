@@ -1,0 +1,85 @@
+---
+const title = "Testimonios de quienes confiaron en Espacio Amapola";
+const subtitle = "Historias reales, experiencias únicas y momentos inolvidables.";
+
+const testimonials = [
+  {
+    name: "Sofía Martínez",
+    image: "/images/en_pareja_img.png",
+    text: "Mi experiencia en Espacio Amapola fue increíble. Me sentí contenida, acompañada y aprendí a conectar con mi embarazo de una manera única.",
+  },
+  {
+    name: "Valeria López",
+    image: "/images/en_pareja_img.png",
+    text: "Los encuentros me dieron herramientas valiosas para afrontar el postparto con confianza. Sin duda, fue una gran decisión participar.",
+  },
+  {
+    name: "Carla Fernández",
+    image: "/images/en_pareja_img.png",
+    text: "Descubrí la importancia del movimiento consciente durante mi embarazo. Espacio Amapola me dio todo el apoyo que necesitaba.",
+  },
+  {
+    name: "Andrea Gutiérrez",
+    image: "/images/en_pareja_img.png",
+    text: "Gracias a este espacio, aprendí a confiar en mi cuerpo y en el proceso de dar a luz. Un acompañamiento que recomiendo a todas.",
+  },
+];
+---
+
+<section class="py-24">
+  <div class="container mx-auto px-6">
+    <!-- Título -->
+    <div class="text-center mb-12 opacity-0 transform translate-y-10 transition-all duration-700" data-animate>
+      <h1 class="text-4xl md:text-5xl font-serif font-semibold text-gray-800 mb-4">
+        {title}
+      </h1>
+      <p class="text-lg md:text-xl font-sans text-gray-800">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Contenedor de testimonios -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {testimonials.map((testimonial, index) => (
+        <div class="relative bg-orange-3 bg-opacity-60 rounded-xl shadow-lg overflow-hidden p-6 opacity-0 transform translate-y-10 transition-all duration-700"
+          style={`transition-delay: ${(index + 1) * 200}ms`}
+          data-animate
+        >
+          <!-- Imagen del testimonio -->
+          <div class="flex justify-center">
+            <img src={testimonial.image} alt={testimonial.name} class="w-full h-24 object-cover rounded-xl shadow-md border-4 border-orange-200" />
+          </div>
+
+          <!-- Contenido del testimonio -->
+          
+            <div class="flex justify-center mb-4 mt-4">
+            <h3 class="text-lg md:text-xl font-serif font-semibold text-gray-900 bg-orange-3 py-1 px-3 rounded-full">{testimonial.name}</h3>
+            </div>
+            <div class="text-center mt-4 bg-orange-200 rounded-2xl">
+            <p class="text-sm font-sans text-gray-700 mt-2">{testimonial.text}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- Script de animación -->
+<script is:inline>
+  window.addEventListener("load", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.remove("opacity-0", "translate-y-10");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const animateElements = document.querySelectorAll("[data-animate]");
+    animateElements.forEach((el) => observer.observe(el));
+  });
+</script>
