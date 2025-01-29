@@ -1,6 +1,12 @@
 ---
-const whatsappNumber = "+5491159401216";
 import WhatsAppIcon from "../Icons/WhatsappIcon";
+
+const whatsappNumber = import.meta.env.WHATSAPP_NUMBER;
+
+const generateWhatsAppURL = () =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hola Rochi, me interesa tener una consulta gratuita para conocer mas sobre Espacio Amapola y sus planes.`
+  )}`;
 ---
 
 <section class="flex items-center justify-center py-12 px-4">
@@ -8,7 +14,7 @@ import WhatsAppIcon from "../Icons/WhatsappIcon";
     class="max-w-2xl text-center bg-orange-3 text-white-1 rounded-2xl p-8 shadow-lg"
   >
     <!-- Título -->
-    <h2 class="text-4xl md:text-6xl font-serif mb-4">Un espacio para vos</h2>
+    <h2 class="text-4xl md:text-6xl font-serif mb-4">Consulta gratuita</h2>
 
     <!-- Descripción -->
     <p class="text-base md:text-xl mb-6 font-sans text-white-1">
@@ -19,11 +25,13 @@ import WhatsAppIcon from "../Icons/WhatsappIcon";
 
     <!-- Botón -->
     <a
-      href={`https://wa.me/${whatsappNumber}`}
+      href={generateWhatsAppURL()}
+      target="_blank"
+      rel="noopener noreferrer"
       class="inline-flex items-center justify-center bg-orange-200 text-orange-2 hover:brightness-125 font-sans py-3 px-6 rounded-full transition-all duration-300"
     >
       <WhatsAppIcon className="h-5 w-5 mr-2 fill-current" />
-      Reservar mi lugar
+      Agendar
     </a>
   </div>
 </section>

@@ -2,29 +2,13 @@
 const title = "Encuentros pensados para que te lleves lo que estas necesitando";
 const subtitle = "Personalizados, presencial en CABA y/o virtual";
 
-const whatsappNumber = "5491132873292"; // Reemplazar por el número real
-const generateWhatsAppURL = (plan: string, subProposal: string) =>
+const whatsappNumber = import.meta.env.WHATSAPP_NUMBER;
+const generateWhatsAppURL = (plan, subProposal) =>
   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `Hola Rochi, me interesa el encuentro "${subProposal}" del plan "${plan}". Me gustaría recibir más información.`
   )}`;
 
-interface SubProposal {
-  title: string;
-  description: string;
-  sessions: number;
-  frequency: string;
-  duration: string;
-  price: string;
-}
-
-interface Plan {
-  title: string;
-  description: string;
-  image: string;
-  subProposals: SubProposal[];
-}
-
-const plans: Plan[] = [
+const plans = [
   {
     title: "Prenatal",
     description: "Encuentros diseñados para prepararte física y emocionalmente para la llegada de tu bebé.",
@@ -61,7 +45,7 @@ const plans: Plan[] = [
     description: "Actividades para fortalecer la colaboración y conexión con tu pareja antes del parto.",
     image: "/images/en_pareja_img.png",
     subProposals: [
-    {
+      {
         title: "Camino al encuentro",
         description: "Propuesta integral que invita a prepararse para el trabajo de parto, parto y la vuelta a casa, a través de información sobre la fisiología del cuerpo, la importancia del entorno y recursos corporales como el movimiento y la respiración para conectar con su tu bebé.",
         sessions: 4,
@@ -109,7 +93,7 @@ const plans: Plan[] = [
   <div class="container mx-auto px-6">
     <!-- Título -->
     <h1 class="text-4xl md:text-5xl font-serif font-semibold text-gray-700 text-center mb-4">
-      {title} 
+      {title}
     </h1>
     <h2 class="text-lg md:text-xl font-sans text-gray-800 text-center mb-12">
       {subtitle}
@@ -138,9 +122,7 @@ const plans: Plan[] = [
             <!-- Subpropuestas -->
             <div class="space-y-6">
               {plan.subProposals.map((sub) => {
-                // Generar el enlace de WhatsApp según cada plan
-                const whatsappMessage = `Hola, Rochi! Quisiera reservar la propuesta "${sub.title}" de los encuentros "${plan.title}".`;
-                const whatsappLink = `https://wa.me/1132873292?text=${encodeURIComponent(whatsappMessage)}`;
+                const whatsappLink = generateWhatsAppURL(plan.title, sub.title);
 
                 return (
                   <div
@@ -192,4 +174,3 @@ const plans: Plan[] = [
     </div>
   </div>
 </section>
-
