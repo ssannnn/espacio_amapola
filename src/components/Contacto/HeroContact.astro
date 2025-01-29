@@ -3,6 +3,10 @@ import WhatsAppIcon from "../Icons/WhatsappIcon";
 import InstagramIcon from "../Icons/InstagramIcon";
 import FacebookIcon from "../Icons/FacebookIcon";
 
+const facebookLink = import.meta.env.FACEBOOK_LINK_ADDRESS;
+const instagramLink = import.meta.env.INSTAGRAM_LINK_ADDRESS;
+const whatsappNumber = import.meta.env.WHATSAPP_NUMBER;
+
 const title = "Contactame";
 const description =
   "Si te quedaste con alguna duda, escribime o contactame para coordinar un encuentro virtual sin costo para conversar acerca de lo que estés necesitando.";
@@ -155,7 +159,7 @@ const faqItems = [
     <!-- Redes sociales -->
     <div class="flex justify-center space-x-6 mt-12">
       <a
-        href="https://wa.me/5491112345678"
+        href={whatsappNumber}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
@@ -164,7 +168,7 @@ const faqItems = [
         <WhatsAppIcon className="h-6 w-6 fill-current" />
       </a>
       <a
-        href="https://instagram.com/tuusuario"
+        href={instagramLink}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
@@ -173,7 +177,7 @@ const faqItems = [
         <InstagramIcon className="h-6 w-6 fill-current" />
       </a>
       <a
-        href="https://facebook.com/tuusuario"
+        href={facebookLink}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Facebook"

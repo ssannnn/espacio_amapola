@@ -2,6 +2,10 @@
 import GitHubIcon from "../Icons/GitHubIcon";
 import FacebookIcon from "../Icons/FacebookIcon";
 import InstagramIcon from "../Icons/InstagramIcon";
+
+const githubLink = import.meta.env.GITHUB_LINK_ADDRESS;
+const facebookLink = import.meta.env.FACEBOOK_LINK_ADDRESS;
+const instagramLink = import.meta.env.INSTAGRAM_LINK_ADDRESS;
 ---
 
 <footer class="relative bg-orange-3 py-12">
@@ -65,7 +69,7 @@ import InstagramIcon from "../Icons/InstagramIcon";
       </div>
       <div class="flex space-x-2">
         <a
-          href="#"
+          href={instagramLink}
           class="group hover:opacity-80 focus:opacity-80"
           aria-label="Ir a Instagram"
         >
@@ -75,7 +79,7 @@ import InstagramIcon from "../Icons/InstagramIcon";
         </a>
 
         <a
-          href="#"
+          href={facebookLink}
           class="group hover:opacity-80 focus:opacity-80"
           aria-label="Ir a Facebook"
         >
@@ -93,7 +97,7 @@ import InstagramIcon from "../Icons/InstagramIcon";
   >
     <span>Site by</span>
     <a
-      href="https://github.com/tu-usuario"
+      href={githubLink}
       class="group hover:opacity-80 focus:opacity-80"
       aria-label="Ir al perfil de GitHub"
     >
