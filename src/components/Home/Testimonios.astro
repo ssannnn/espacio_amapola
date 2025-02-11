@@ -1,26 +1,29 @@
+---
+---
+
 <section class="relative py-16">
   <div class="container mx-auto px-4 text-center">
     <!-- Título -->
     <h2
-      class="relative inline-block text-4xl md:text-6xl font-serif font-semibold text-gray-700 mb-16 transition-transform duration-300 hover:scale-105"
+      class="relative inline-block text-4xl md:text-6xl font-serif font-semibold text-gray-700 mb-16"
     >
-      Experiencias
+      Testimonios
     </h2>
 
     <!-- Contenedor del Carrusel -->
     <div class="relative">
-      <!-- Botón Izquierdo -->
+      <!-- Botón izq de desplazamiento -->
       <button
-        class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
-        aria-label="Anterior"
-        tabindex="0"
-        onclick="scrollCarousel(-1)"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
-
+      class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white-1 px-6 py-3 rounded-full border border-white-1 shadow-lg transition-all duration-300 hover:-translate-x-2 hover:scale-110 hover:shadow-2xl z-50"
+      aria-label="Anterior"
+      tabindex="0"
+      onclick="scrollCarousel(-1)"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    
       <!-- Carrusel -->
       <div
         id="carousel"
@@ -96,19 +99,19 @@
         ))}
       </div>
 
-      <!-- Botón Derecho -->
+      <!-- Botón der de desplazamiento -->
       <button
-        class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white p-3 rounded-full shadow-md hover:bg-orange-600 z-10"
-        aria-label="Siguiente"
-        tabindex="0"
-        onclick="scrollCarousel(1)"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
-    </div>
-
+      class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white-1 px-6 py-3 rounded-full border border-white-1 shadow-lg transition-all duration-300 hover:translate-x-2 hover:scale-110 hover:shadow-2xl z-50"
+      aria-label="Siguiente"
+      tabindex="0"
+      onclick="scrollCarousel(1)"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+    
+    
     <!-- Indicadores -->
     <div class="mt-4 flex justify-center space-x-2" id="carouselIndicators">
       {[...Array(3)].map((_, i) => (
