@@ -11,12 +11,14 @@ const generateWhatsAppURL = (plan, subProposal) =>
 const plans = [
   {
     title: "Prenatal",
-    description: "Encuentros diseñados para prepararte física y emocionalmente para la llegada de tu bebé.",
-    image: "/images/prenatales_img.png",
+    description:
+      "Encuentros diseñados para prepararte física y emocionalmente para la llegada de tu bebé.",
+    image: "/images/prenatal_card_1.jpg",
     subProposals: [
       {
         title: "Camino al encuentro",
-        description: "Propuesta integral que invita a prepararse para el trabajo de parto, parto y la vuelta a casa, a través de información sobre la fisiología del cuerpo, la importancia del entorno y recursos corporales como el movimiento y la respiración para conectar con su tu bebé.",
+        description:
+          "Propuesta integral que invita a prepararse para el trabajo de parto, parto y la vuelta a casa, a través de información sobre la fisiología del cuerpo, la importancia del entorno y recursos corporales como el movimiento y la respiración para conectar con su tu bebé.",
         sessions: 4,
         frequency: "Semanal",
         duration: "1 hs",
@@ -24,15 +26,17 @@ const plans = [
       },
       {
         title: "Habitando mi cuerpo",
-        description: "Trabajamos con movimientos suaves y conscientes para aliviar tensiones, desde la esferodinamia, el método de Frida Kaplan y visualizaciones, para conectar con tu bebé y preparar tu cuerpo para el trabajo de parto y parto.",
-        sessions: 10,
+        description:
+          "Trabajamos con movimientos suaves y conscientes para aliviar tensiones, desde la esferodinamia, el método de Frida Kaplan y visualizaciones, para conectar con tu bebé y preparar tu cuerpo para el trabajo de parto y parto.",
+        sessions: "A partir de la semana 14",
         frequency: "Semanal",
         duration: "1:15 hs",
         price: "$9000",
       },
       {
         title: "El arte de amamantar",
-        description: "Una charla sobre cómo lograr una buena prendida, como identificar las señales de hambre, posibles dificultades, posiciones, producción de leche, beneficios de amamantar, entre otras.",
+        description:
+          "Una charla sobre cómo lograr una buena prendida, como identificar las señales de hambre, posibles dificultades, posiciones, producción de leche, beneficios de amamantar, entre otras.",
         sessions: 1,
         frequency: "Única clase",
         duration: "1 hs",
@@ -42,31 +46,25 @@ const plans = [
   },
   {
     title: "En pareja",
-    description: "Actividades para fortalecer la colaboración y conexión con tu pareja antes del parto.",
+    description:
+      "Actividades para fortalecer la colaboración y conexión con tu pareja antes del parto.",
     image: "/images/en_pareja_img.png",
     subProposals: [
       {
         title: "Camino al encuentro",
-        description: "Propuesta integral que invita a prepararse para el trabajo de parto, parto y la vuelta a casa, a través de información sobre la fisiología del cuerpo, la importancia del entorno y recursos corporales como el movimiento y la respiración para conectar con su tu bebé.",
+        description:
+          "Propuesta integral que invita a prepararse para el trabajo de parto, parto y la vuelta a casa, a través de información sobre la fisiología del cuerpo, la importancia del entorno y recursos corporales como el movimiento y la respiración para conectar con su tu bebé.",
         sessions: 4,
-        frequency: "Encuentros semanales",
+        frequency: "Semanal",
         duration: "1 hs",
         price: "$5000",
-      },
-      {
-        title: "Habitando mi cuerpo",
-        description: "Trabajamos con movimientos suaves y conscientes para aliviar tensiones, desde la esferodinamia, el método de Frida Kaplan y visualizaciones, para conectar con tu bebé y preparar tu cuerpo para el trabajo de parto y parto.",
-        sessions: 10,
-        frequency: "Encuentros semanales",
-        duration: "1:15 hs",
-        price: "$9000",
       },
     ],
   },
   {
     title: "Postparto",
     description: "Acompañamiento para adaptarte a tu nueva vida como madre.",
-    image: "/images/posnatales_img.png",
+    image: "/images/postparto-3.jpg",
     subProposals: [
       {
         title: "Asesorías en lactancia",
@@ -91,86 +89,104 @@ const plans = [
 
 <section class="py-24">
   <div class="container mx-auto px-6">
-    <!-- Título -->
-    <h1 class="text-4xl md:text-5xl font-serif font-semibold text-gray-700 text-center mb-4">
+    <h1
+      class="text-3xl md:text-5xl font-serif font-semibold text-gray-700 text-center mb-4"
+    >
       {title}
     </h1>
-    <h2 class="text-lg md:text-xl font-sans text-gray-800 text-center mb-12">
+    <h2 class="text-base md:text-xl font-sans text-gray-800 text-center mb-12">
       {subtitle}
     </h2>
 
-    <!-- Tarjetas -->
-    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-      {plans.map((plan) => (
-        <div
-          class="bg-orange-3 bg-opacity-65 rounded-xl overflow-hidden shadow-xl transition duration-300 self-start"
-        >
-          <img
-            src={plan.image}
-            alt={`Imagen del plan ${plan.title}`}
-            class="w-full h-56 object-cover"
-          />
-          <div class="p-6">
-            <!-- Título centrado -->
-            <div class="flex justify-center mb-4">
-              <h2 class="text-lg md:text-xl font-serif font-semibold text-gray-900 bg-orange-3 py-1 px-3 rounded-full">
-                {plan.title}
-              </h2>
-            </div>
-            <p class="font-sans text-gray-800 mb-6">{plan.description}</p>
-
-            <!-- Subpropuestas -->
-            <div class="space-y-6">
-              {plan.subProposals.map((sub) => {
-                const whatsappLink = generateWhatsAppURL(plan.title, sub.title);
-
-                return (
-                  <div
-                    class="p-5 bg-orange-200 rounded-lg md:hover:shadow-2xl md:hover:scale-105 transition-all duration-300 ease-out"
-                  >
-                    <div class="flex justify-center mb-2">
-                      <h3 class="text-xl font-serif text-gray-900 mb-4">{sub.title}</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        plans.map((plan) => (
+          <div class="bg-orange-50 rounded-xl overflow-hidden shadow-md transition duration-300 self-start">
+            <img
+              src={plan.image}
+              alt={`Imagen del plan ${plan.title}`}
+              class="w-full h-48 sm:h-56 md:h-64 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex justify-center mb-4">
+                <h2 class="text-lg md:text-2xl font-serif font-semibold text-gray-700 py-1 px-3 rounded-full">
+                  {plan.title}
+                </h2>
+              </div>
+              <p class="text-sm md:text-base font-sans text-gray-700 mb-6">
+                {plan.description}
+              </p>
+              <div class="space-y-6">
+                {plan.subProposals.map((sub) => {
+                  const whatsappLink = `/contacto?plan=${plan.title}&sub=${sub.title}`;
+                  return (
+                    <div class="p-5 bg-orange-100 rounded-lg md:hover:scale-105 transition-all duration-300 ease-out">
+                      <div class="flex justify-center mb-2">
+                        <h3 class="text-base md:text-xl font-serif text-gray-700 mb-4">
+                          {sub.title}
+                        </h3>
+                      </div>
+                      <p class="text-xs md:text-sm font-sans text-gray-700 mb-4">
+                        {sub.description}
+                      </p>
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs md:text-sm font-sans text-gray-700">
+                        <div class="flex items-center space-x-2">
+                          <img
+                            src="/icons/calendar.svg"
+                            alt="Calendario"
+                            class="w-4 md:w-5 h-4 md:h-5"
+                          />
+                          <p>
+                            <strong>Encuentros:</strong> {sub.sessions}
+                          </p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <img
+                            src="/icons/frequency.svg"
+                            alt="Frecuencia"
+                            class="w-4 md:w-5 h-4 md:h-5"
+                          />
+                          <p>
+                            <strong>Frecuencia:</strong> {sub.frequency}
+                          </p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <img
+                            src="/icons/clock.svg"
+                            alt="Duración"
+                            class="w-4 md:w-5 h-4 md:h-5"
+                          />
+                          <p>
+                            <strong>Duración:</strong> {sub.duration}
+                          </p>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                          <img
+                            src="/icons/money.svg"
+                            alt="Precio"
+                            class="w-4 md:w-5 h-4 md:h-5"
+                          />
+                          <p>
+                            <strong>Precio:</strong> {sub.price}
+                          </p>
+                        </div>
+                      </div>
+                      <div class="text-center mt-6">
+                        <a
+                          href={whatsappLink}
+                          class="px-4 md:px-5 py-2 bg-orange-3 text-white-1 font-medium font-sans rounded-lg md:hover:brightness-125 transition"
+                        >
+                          Reservar
+                        </a>
+                      </div>
                     </div>
-                    <p class="text-sm font-sans text-gray-800 mb-4">{sub.description}</p>
-
-                    <!-- Subitems destacados -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm font-sans">
-                      <div class="flex items-center space-x-2">
-                        <img src="/icons/calendar.svg" alt="Calendario" class="w-5 h-5" />
-                        <p><strong>Encuentros:</strong> {sub.sessions}</p>
-                      </div>
-                      <div class="flex items-center space-x-2">
-                        <img src="/icons/frequency.svg" alt="Frecuencia" class="w-5 h-5" />
-                        <p><strong>Frecuencia:</strong> {sub.frequency}</p>
-                      </div>
-                      <div class="flex items-center space-x-2">
-                        <img src="/icons/clock.svg" alt="Duración" class="w-5 h-5" />
-                        <p><strong>Duración:</strong> {sub.duration}</p>
-                      </div>
-                      <div class="flex items-center space-x-2">
-                        <img src="/icons/money.svg" alt="Precio" class="w-5 h-5" />
-                        <p><strong>Precio:</strong> {sub.price}</p>
-                      </div>
-                    </div>
-
-                    <!-- Botón de Reservar -->
-                    <div class="text-center mt-8">
-                      <a
-                        href={whatsappLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="px-5 py-2 bg-orange-3 text-white-1 font-normal font-sans rounded-full md:hover:brightness-125 transition"
-                      >
-                        Reservar
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>

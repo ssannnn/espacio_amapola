@@ -40,56 +40,81 @@ const testimonials = [
 <section class="py-24 bg-orange-50">
   <div class="container mx-auto px-6 text-center">
     <h1
-      class="text-4xl md:text-5xl font-serif font-semibold text-gray-800 mb-4"
+      class="text-4xl md:text-5xl font-serif font-semibold text-gray-700 mb-4"
     >
       {title}
     </h1>
-    <p class="text-lg md:text-xl font-sans text-gray-800 mb-8">{subtitle}</p>
+    <p class="text-lg md:text-xl font-sans text-gray-700 mb-8">
+      {subtitle}
+    </p>
   </div>
 
   <div
-    class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
   >
     {
       testimonials.map((testimonial, index) => (
-        <div
-          class="bg-orange-100 p-6 rounded-xl shadow-lg transform transition-all duration-700 opacity-0 translate-y-10 flex flex-col items-center"
-          data-animate
-        >
+        <div class="bg-orange-50 rounded-xl overflow-hidden shadow-md transition duration-300 self-start">
           <img
             src={testimonial.image}
             alt={testimonial.name}
-            class="w-32 h-32 md:w-72 md:h-48 object-cover rounded-lg border-4 border-orange-200 shadow-lg mb-4"
+            class="w-full h-56 object-cover"
           />
-          <h3 class="text-lg md:text-xl font-serif font-semibold text-gray-900 bg-orange-300 py-1 px-3 rounded-full text-center">
-            {testimonial.name}
-          </h3>
-          <p class="text-sm md:text-base font-sans text-gray-700 mt-4  p-4 rounded-xl w-full">
-            {testimonial.text}
-          </p>
+          <div class="p-6">
+            <h2 class="text-lg md:text-2xl font-serif font-semibold text-gray-700 py-1 px-3 rounded-full text-center">
+              {testimonial.name}
+            </h2>
+            <p
+              id={`testimonial-text-${index}`}
+              class="testimonial-text text-sm md:text-base font-sans text-gray-700 mb-6 mt-4 transition-all duration-500 overflow-hidden max-h-40"
+            >
+              {testimonial.text}
+            </p>
+            <button
+              class="text-white-1 text-sm md:text-base font-medium hover:brightness-125 toggle-expand bg-orange-3 w-full rounded-lg"
+              data-index={index}
+            >
+              Leer más
+            </button>
+          </div>
         </div>
       ))
     }
   </div>
 </section>
 
-<!-- Animación de aparición con fade-in y deslizamiento -->
 <script is:inline>
-  window.addEventListener("load", () => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.remove("opacity-0", "translate-y-10");
-            entry.target.classList.add("opacity-100", "translate-y-0");
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      let activeIndex = -1;
+
+      document.querySelectorAll(".toggle-expand").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          const index = parseInt(event.target.dataset.index);
+
+          document.querySelectorAll(".testimonial-text").forEach((el, idx) => {
+            if (idx !== index) {
+              el.classList.remove("max-h-full");
+              el.classList.add("max-h-36");
+              document.querySelectorAll(".toggle-expand")[idx].innerText =
+                "Leer más";
+            }
+          });
+
+          const textElement = document.getElementById(
+            `testimonial-text-${index}`
+          );
+          if (textElement.classList.contains("max-h-36")) {
+            textElement.classList.remove("max-h-36");
+            textElement.classList.add("max-h-full");
+            event.target.innerText = "Leer menos";
+          } else {
+            textElement.classList.remove("max-h-full");
+            textElement.classList.add("max-h-36");
+            event.target.innerText = "Leer más";
           }
         });
-      },
-      { threshold: 0.2 }
-    );
-
-    document
-      .querySelectorAll("[data-animate]")
-      .forEach((el) => observer.observe(el));
-  });
+      });
+    });
+  }
 </script>
