@@ -89,11 +89,11 @@
                 />
               </div>
               <!-- Nombre -->
-              <h3 class="text-xl font-serif text-gray-700 hover:text-orange-2 mb-4">
+              <h3 class="text-lg md:text-xl font-serif text-gray-700 hover:text-orange-2 mb-4">
                 {testimony.name}
               </h3>
               <!-- Testimonio -->
-              <p class="text-gray-700 text-sm font-sans">{testimony.testimony}</p>
+              <p class="text-gray-700 text-xs md:text-sm font-sans">{testimony.testimony}</p>
             </div>
           </div>
         ))}
@@ -164,10 +164,10 @@
   function updateIndicators() {
     indicators.forEach((indicator, index) => {
       if (index === currentIndex) {
-        indicator.classList.add("bg-orange-500");
+        indicator.classList.add("bg-orange-3");
         indicator.classList.remove("bg-gray-400");
       } else {
-        indicator.classList.remove("bg-orange-500");
+        indicator.classList.remove("bg-orange-3");
         indicator.classList.add("bg-gray-400");
       }
     });

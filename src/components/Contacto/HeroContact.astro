@@ -34,7 +34,7 @@ const faqItems = [
   <div class="container mx-auto px-6">
     <!-- Título y descripción -->
     <h1
-      class="text-4xl md:text-5xl font-serif font-semibold text-gray-700 text-center mb-4"
+      class="text-3xl md:text-5xl font-serif font-semibold text-gray-700 text-center mb-4"
     >
       {title}
     </h1>
@@ -48,13 +48,13 @@ const faqItems = [
       <form
         action="https://formspree.io/f/your-form-id"
         method="POST"
-        class="bg-orange-200 rounded-lg shadow-lg p-6 space-y-6"
+        class="bg-orange-100 rounded-lg shadow-lg p-6 space-y-6"
       >
         <!-- Campo Nombre -->
         <div>
           <label
             for="name"
-            class="block text-sm font-medium text-gray-700 mb-2"
+            class="block text-xs md:text-sm font-sans font-medium text-gray-700 mb-2"
           >
             Nombre completo
           </label>
@@ -63,7 +63,7 @@ const faqItems = [
             id="name"
             name="name"
             required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65"
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65 text-xs md:text-sm"
             placeholder="Ingresa tu nombre completo"
           />
         </div>
@@ -72,7 +72,7 @@ const faqItems = [
         <div>
           <label
             for="email"
-            class="block text-sm font-medium text-gray-700 mb-2"
+            class="block text-xs md:text-sm font-sans font-medium text-gray-700 mb-2"
           >
             Correo electrónico
           </label>
@@ -81,7 +81,7 @@ const faqItems = [
             id="email"
             name="email"
             required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65"
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65 text-xs md:text-sm"
             placeholder="Ingresa tu correo electrónico"
           />
         </div>
@@ -90,7 +90,7 @@ const faqItems = [
         <div>
           <label
             for="message"
-            class="block text-sm font-medium text-gray-700 mb-2"
+            class="block text-xs md:text-sm font-medium font-sans text-gray-700 mb-2"
           >
             Mensaje
           </label>
@@ -99,7 +99,7 @@ const faqItems = [
             name="message"
             rows="5"
             required
-            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65"
+            class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65 text-xs md:text-sm"
             placeholder="Escribe tu mensaje aquí"></textarea>
         </div>
 
@@ -107,7 +107,7 @@ const faqItems = [
         <div class="text-center">
           <button
             type="submit"
-            class="px-6 py-3 bg-orange-3 text-white-1 rounded-full font-medium font-sans hover:bg-opacity-90 transition"
+            class="px-6 py-3 bg-orange-3 text-white-1 rounded-lg text-xs md:text-base font-sans font-medium hover:brightness-125"
           >
             Enviar mensaje
           </button>
@@ -130,7 +130,7 @@ const faqItems = [
           alt="Mapa indicando la zona de encuentros"
           class="rounded-lg object-cover w-full h-full"
         />
-        <p class="text-sm font-sans text-gray-700 mt-4 text-center">
+        <p class="text-xs md:text-sm font-sans text-gray-700 mt-4 text-center">
           Zona de encuentros presenciales: Recoleta, CABA. Contactanos para
           coordinar una ubicación exacta.
         </p>
@@ -139,17 +139,21 @@ const faqItems = [
 
     <!-- FAQ -->
     <div class="bg-white rounded-lg shadow-lg p-6">
-      <h2 class="text-2xl font-serif font-semibold text-gray-700 mb-6">
+      <h2
+        class="text-xl md:text-2xl font-serif font-semibold text-gray-700 mb-6"
+      >
         Preguntas Frecuentes
       </h2>
       <div class="space-y-4">
         {
           faqItems.map((faq) => (
             <div class="p-4 bg-orange-50 rounded-md border border-gray-300">
-              <h3 class="text-lg font-semibold text-gray-700 mb-2">
+              <h3 class="text-base md:text-lg font-semibold font-sans text-gray-700 mb-2">
                 {faq.question}
               </h3>
-              <p class="text-sm text-gray-700">{faq.answer}</p>
+              <p class="text-xs md:text-sm font-sans text-gray-700">
+                {faq.answer}
+              </p>
             </div>
           ))
         }
