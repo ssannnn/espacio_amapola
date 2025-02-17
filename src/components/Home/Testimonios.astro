@@ -1,29 +1,26 @@
----
----
-
-<section class="relative py-16">
+<section aria-labelledby="testimonios-heading" class="relative py-16">
   <div class="container mx-auto px-4 text-center">
     <!-- Título -->
     <h2
+      id="testimonios-heading"
       class="relative inline-block text-4xl md:text-6xl font-serif font-semibold text-gray-700 mb-16"
     >
       Testimonios
     </h2>
 
     <!-- Contenedor del Carrusel -->
-    <div class="relative">
-      <!-- Botón izq de desplazamiento -->
+    <div class="relative" role="region" aria-label="Carrusel de testimonios">
+      <!-- Botón izquierdo de desplazamiento (solo en desktop) -->
       <button
-      class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white-1 px-6 py-3 rounded-full border border-white-1 shadow-lg transition-all duration-300 hover:-translate-x-2 hover:scale-110 hover:shadow-2xl z-50"
-      aria-label="Anterior"
-      tabindex="0"
-      onclick="scrollCarousel(-1)"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    
+        class="carousel-prev hidden md:block absolute left-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white-1 px-6 py-3 rounded-full border border-white-1 shadow-lg transition-all duration-500 ease-in-out hover:-translate-x-2 hover:scale-110 hover:shadow-2xl z-50"
+        aria-label="Anterior"
+        tabindex="0"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      
       <!-- Carrusel -->
       <div
         id="carousel"
@@ -36,139 +33,136 @@
           }
         </style>
 
-        <!-- Tarjetas -->
+        <!-- Tarjetas de testimonio -->
         {[
           {
             name: "Justi y Nico",
             testimony:
               "No duden en regalarse este espacio, es un mimo y una lindísima forma de transitar el embarazo. Empecé a hacer acompañamiento individual con Rochi cuando faltaban dos meses para mi fecha probable de parto. Este espacio fue para mí de quietud y encuentro.",
-            image: "/images/posnatales_img.png",
+            image: "/images/postparto-2.jpg",
           },
           {
             name: "Amanda",
             testimony:
               "Tengo la suerte de haber contado con las palabras y el acompañamiento amoroso de Rochi tanto embarazada como luego del parto. En nuestra charla previa al nacimiento pude desagotar un montón de dudas y recibir recomendaciones que me ayudaron a mi y al padre a recibir nuestro bebe con mucho amor, gracias a este encuentro pudimos encontrarnos mas como pareja y prepararnos para el nacimiento de Ignacio.",
-            image: "/images/posnatales_img.png",
+            image: "/images/postparto-2.jpg",
           },
           {
             name: "Angie",
             testimony:
-              "Fue clave tener el acompañamiento de Rochi en este mundo nuevo de la lactancia. Gracias a sus consejos y guía pude disfrutar mucho de darle de mamar a Jacinta. Además, a los tres meses de la beba tuve un dolor  fuerte que me asustó mucho y Rochi enseguida me contestó con mucha calma y seguridad.",
-            image: "/images/posnatales_img.png",
+              "Fue clave tener el acompañamiento de Rochi en este mundo nuevo de la lactancia. Gracias a sus consejos y guía pude disfrutar mucho de darle de mamar a Jacinta. Además, a los tres meses de la beba tuve un dolor fuerte que me asustó mucho y Rochi enseguida me contestó con mucha calma y seguridad.",
+            image: "/images/postparto-2.jpg",
           },
           {
             name: "Male",
             testimony:
-              "Rochi me acompañó durante el embarazo y en mis primeros meses de lactancia. En momentos donde necesitaba contención y ayuda, siempre conté con ella, con su consejo, su aliento, su positividad y su calma. Gracias por darme confianza en mi misma, por entenderme y no minimizar en ningún momento mis preocupaciones o dudas. Gracias Rochi!.",
-            image: "/images/posnatales_img.png",
+              "Rochi me acompañó durante el embarazo y en mis primeros meses de lactancia. En momentos donde necesitaba contención y ayuda, siempre conté con ella, con su consejo, su aliento, su positividad y su calma. Gracias por darme confianza en mi misma, por entenderme y no minimizar en ningún momento mis preocupaciones o dudas. ¡Gracias Rochi!",
+            image: "/images/postparto-2.jpg",
           },
           {
             name: "Rocío",
             testimony:
-              "Rosario me brindó ayuda de forma inmediata cuando la contacté. Le escribí y en el mismo día me respondió y comenzó a pasarme información y a explicarme cómo podía mejorar la prendida para no sentir dolor mientras acordábamos un horario para la consulta. Vino a mi casa y con mucha paciencia y dulzura me explicó todo, probamos varias posturas para amamantar, habló con mi esposo para que él sepa cómo ayudarme y me dió las pautas que necesitaba para poder seguir amamantando.",
-            image: "/images/posnatales_img.png",
+              "Rosario me brindó ayuda de forma inmediata cuando la contacté. Le escribí y en el mismo día me respondió y comenzó a pasarme información y a explicarme cómo podía mejorar la prendida para no sentir dolor mientras acordábamos un horario para la consulta. Vino a mi casa y con mucha paciencia y dulzura me explicó todo, probamos varias posturas para amamantar, habló con mi esposo para que él sepa cómo ayudarme y me dio las pautas que necesitaba para poder seguir amamantando.",
+            image: "/images/postparto-2.jpg",
           },
           {
             name: "Flor",
             testimony:
               "Mil gracias Rochi por tu ayuda!! Estaba súper angustiada por sentir tanto dolor y no disfrutar la lactancia. Poco a poco fui poniendo en práctica tus consejos y ahora los dos: Bauti y yo disfrutamos mucho de un momento único para ambos!!",
-            image: "/images/posnatales_img.png",
+            image: "/images/postparto-2.jpg",
           },
         ].map((testimony, index) => (
           <div
-            class="mb-4 mt-4 ml-3 mr-3 snap-center flex-shrink-0 bg-white border-2 border-gray-700 bg-orange-50 rounded-lg shadow-lg p-6 w-[280px] sm:w-[300px] md:w-[350px] lg:w-[400px]  hover:bg-orange-100 hover:border-orange-2 transition-transform duration-300 hover:scale-105"
+            class="mb-4 mt-4 ml-3 mr-3 snap-center flex-shrink-0 bg-white border-2 border-gray-700 bg-orange-50 rounded-lg shadow-lg p-6 w-[280px] sm:w-[300px] md:w-[350px] lg:w-[400px] hover:bg-orange-100 hover:border-orange-2 transition-transform duration-500 ease-in-out hover:scale-105"
             data-index={index}
           >
-            <div class="flex flex-col items-center">
-              <!-- Imagen Circular -->
-              <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
-                <img
-                  src={testimony.image}
-                  alt={`Foto de ${testimony.name}`}
-                  class="w-full h-full object-cover"
-                />
+            <!-- Envolvemos la tarjeta en un enlace para redirigir a /testimonios -->
+            <a href="/testimonios" class="block">
+              <div class="flex flex-col items-center">
+                <!-- Imagen Circular -->
+                <div class="w-24 h-24 rounded-full overflow-hidden mb-4">
+                  <img
+                    src={testimony.image}
+                    alt={`Foto de ${testimony.name}`}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <!-- Nombre -->
+                <h3 class="text-lg md:text-xl font-serif text-gray-700 hover:text-orange-2 mb-4">
+                  {testimony.name}
+                </h3>
+                <!-- Testimonio -->
+                <p class="text-gray-700 text-xs md:text-sm font-sans">{testimony.testimony}</p>
               </div>
-              <!-- Nombre -->
-              <h3 class="text-xl font-serif text-gray-700 hover:text-orange-2 mb-4">
-                {testimony.name}
-              </h3>
-              <!-- Testimonio -->
-              <p class="text-gray-700 text-sm font-sans">{testimony.testimony}</p>
-            </div>
+            </a>
           </div>
         ))}
       </div>
 
-      <!-- Botón der de desplazamiento -->
+      <!-- Botón derecho de desplazamiento (solo en desktop) -->
       <button
-      class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white-1 px-6 py-3 rounded-full border border-white-1 shadow-lg transition-all duration-300 hover:translate-x-2 hover:scale-110 hover:shadow-2xl z-50"
-      aria-label="Siguiente"
-      tabindex="0"
-      onclick="scrollCarousel(1)"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-    
-    
-    <!-- Indicadores -->
-    <div class="mt-4 flex justify-center space-x-2" id="carouselIndicators">
-      {[...Array(3)].map((_, i) => (
-        <span
-          class="w-3 h-3 rounded-full bg-gray-400 transition"
-          data-index={i}
-          aria-label={`Indicador ${i + 1}`}
-        ></span>
-      ))}
+        class="carousel-next hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 bg-orange-3 text-white-1 px-6 py-3 rounded-full border border-white-1 shadow-lg transition-all duration-500 ease-in-out hover:translate-x-2 hover:scale-110 hover:shadow-2xl z-50"
+        aria-label="Siguiente"
+        tabindex="0"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      
+      <!-- Indicadores -->
+      <div class="mt-4 flex justify-center space-x-2" id="carouselIndicators">
+        {[...Array(3)].map((_, i) => (
+          <button
+            type="button"
+            class="w-3 h-3 rounded-full bg-gray-400 transition focus:outline-none"
+            data-index={i}
+            aria-label={`Ir a slide ${i + 1}`}
+            tabindex="0"
+          ></button>
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
 <script is:inline>
   const carousel = document.getElementById("carousel");
-  const indicators = document.querySelectorAll("#carouselIndicators span");
+  const indicators = document.querySelectorAll("#carouselIndicators button");
+  const prevButton = document.querySelector(".carousel-prev");
+  const nextButton = document.querySelector(".carousel-next");
   let autoScrollInterval;
   let currentIndex = 0;
-  let isAutoScrolling = true; // Bandera para diferenciar entre auto-scroll y manual
+  let isAutoScrolling = true;
 
   // Función para mover el carrusel manualmente
   function scrollCarousel(direction) {
-    isAutoScrolling = false; // Desactivamos el auto-scroll temporalmente
+    isAutoScrolling = false;
     const cardWidth = carousel.querySelector(".snap-center").offsetWidth;
     const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
     const scrollAmount = cardWidth + gap;
     const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-
-    // Calcula el nuevo desplazamiento limitado al rango
     let newScrollLeft = carousel.scrollLeft + scrollAmount * direction;
-
-    if (newScrollLeft < 0) {
-      newScrollLeft = 0; // No permite ir más allá del principio
-    } else if (newScrollLeft > maxScrollLeft) {
-      newScrollLeft = maxScrollLeft; // No permite ir más allá del final
-    }
-
-    // Realiza el desplazamiento
+    if (newScrollLeft < 0) newScrollLeft = 0;
+    if (newScrollLeft > maxScrollLeft) newScrollLeft = maxScrollLeft;
     carousel.scrollTo({ left: newScrollLeft, behavior: "smooth" });
-
-    // Actualiza el índice de los indicadores
     currentIndex = Math.round(newScrollLeft / scrollAmount);
     updateIndicators();
-
-    // Reactiva el auto-scroll después de un retraso
-    setTimeout(() => (isAutoScrolling = true), 3000);
+    setTimeout(() => isAutoScrolling = true, 3000);
   }
 
   // Actualiza los indicadores según el índice actual
   function updateIndicators() {
     indicators.forEach((indicator, index) => {
       if (index === currentIndex) {
-        indicator.classList.add("bg-orange-500");
+        indicator.classList.add("bg-orange-3");
         indicator.classList.remove("bg-gray-400");
+        indicator.setAttribute("aria-current", "true");
       } else {
-        indicator.classList.remove("bg-orange-500");
+        indicator.classList.remove("bg-orange-3");
         indicator.classList.add("bg-gray-400");
+        indicator.removeAttribute("aria-current");
       }
     });
   }
@@ -176,14 +170,11 @@
   // Función para iniciar el auto-scroll
   function startAutoScroll() {
     autoScrollInterval = setInterval(() => {
-      if (!isAutoScrolling) return; // No hace nada si está en modo manual
-
+      if (!isAutoScrolling) return;
       const cardWidth = carousel.querySelector(".snap-center").offsetWidth;
       const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
       const scrollAmount = cardWidth + gap;
       const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-
-      // Si el carrusel llega al final, reinicia al principio
       if (carousel.scrollLeft + scrollAmount > maxScrollLeft) {
         carousel.scrollTo({ left: 0, behavior: "smooth" });
         currentIndex = 0;
@@ -191,7 +182,6 @@
         carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
         currentIndex++;
       }
-
       updateIndicators();
     }, 3000);
   }
@@ -201,13 +191,56 @@
     clearInterval(autoScrollInterval);
   }
 
-  // Inicia el auto-scroll al cargar
   window.addEventListener("load", startAutoScroll);
-
-  // Pausa el auto-scroll al interactuar
   carousel.addEventListener("mouseover", stopAutoScroll);
   carousel.addEventListener("mouseout", startAutoScroll);
 
-  // Inicializar los indicadores
+  // Asocia los eventos de click a los botones de navegación
+  if (prevButton) {
+    prevButton.addEventListener("click", () => {
+      scrollCarousel(-1);
+    });
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      scrollCarousel(1);
+    });
+  }
+
+  // Asocia eventos de click a cada indicador para saltar a la slide correspondiente
+  indicators.forEach(indicator => {
+    indicator.addEventListener("click", () => {
+      const targetIndex = Number(indicator.getAttribute("data-index"));
+      const cardWidth = carousel.querySelector(".snap-center").offsetWidth;
+      const gap = parseFloat(getComputedStyle(carousel).gap) || 0;
+      const scrollAmount = cardWidth + gap;
+      const newScrollLeft = scrollAmount * targetIndex;
+      carousel.scrollTo({ left: newScrollLeft, behavior: "smooth" });
+      currentIndex = targetIndex;
+      updateIndicators();
+    });
+  });
+
+  // Soporte básico para swipe en dispositivos táctiles
+  let touchStartX = 0;
+  let touchEndX = 0;
+  carousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  carousel.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+  function handleGesture() {
+    const threshold = 50; // distancia mínima para considerar swipe
+    if (touchEndX < touchStartX - threshold) {
+      scrollCarousel(1);
+    }
+    if (touchEndX > touchStartX + threshold) {
+      scrollCarousel(-1);
+    }
+  }
+
   updateIndicators();
 </script>

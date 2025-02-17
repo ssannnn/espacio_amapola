@@ -16,7 +16,7 @@ const instagramLink = import.meta.env.INSTAGRAM_LINK_ADDRESS;
     <!-- Logo y nombre -->
     <a
       href="#"
-      class="flex items-center justify-center md:justify-start p-4 bg-white-1 bg-opacity-10 rounded-lg space-x-4 hover:opacity-80 transition-opacity duration-300"
+      class="flex items-center justify-center md:justify-start p-4 bg-orange-50 bg-opacity-10 rounded-lg space-x-2"
       aria-label="Ir al inicio de la página"
     >
       <img
@@ -24,11 +24,15 @@ const instagramLink = import.meta.env.INSTAGRAM_LINK_ADDRESS;
         alt="Logo Espacio Amapola"
         class="h-8 mr-4"
       />
-      <span class="text-xl font-serif text-white-1">Espacio amapola</span>
+      <span class="text-lg md:text-xl font-serif text-white-1"
+        >Espacio amapola</span
+      >
     </a>
 
     <!-- Enlaces de navegación -->
-    <nav class="font-sans text-center text-white-1 font-normal md:text-left">
+    <nav
+      class="font-sans text-center text-sm md:text-base text-white-1 font-normal md:text-left"
+    >
       <ul class="space-y-2">
         <li>
           <a
@@ -72,7 +76,7 @@ const instagramLink = import.meta.env.INSTAGRAM_LINK_ADDRESS;
     <!-- Redes Sociales -->
     <div class="flex flex-col items-center md:items-end space-y-2">
       <div
-        class="bg-white-1 bg-opacity-10 rounded-lg px-4 py-2 text-sm font-medium text-white-1"
+        class="bg-white-1 bg-opacity-10 rounded-lg px-4 py-2 text-xs md:text-sm font-medium text-white-1"
       >
         Encontrame en:
       </div>
@@ -102,7 +106,7 @@ const instagramLink = import.meta.env.INSTAGRAM_LINK_ADDRESS;
 
   <!-- Créditos -->
   <div
-    class="text-center font-sans mt-12 text-sm text-white-1 flex items-center justify-center space-x-2 pb-6"
+    class="text-center font-sans mt-12 text-xs md:text-sm text-white-1 flex items-center justify-center space-x-2 pb-6"
   >
     <span>Site by</span>
     <a
