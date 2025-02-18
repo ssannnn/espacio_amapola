@@ -6,33 +6,34 @@ const description =
   "Pienso que abrazar la maternidad es abrazarse a uno mismo, al bebé, a la familia, con lo que uno es, quiere y puede dar. Agradezco haberme encontrado con este mundo y tener la posibilidad de acompañar a las familias en su camino, en que lo que elijan será lo mejor para ellos.";
 ---
 
-<section class="relative py-16 px-4 sm:px-8 mt-16">
+<!-- Sección "Sobre Mi" -->
+<section
+  aria-labelledby="about-me-title"
+  class="relative py-16 px-4 sm:px-8 mt-16"
+>
   <div class="container mx-auto flex flex-col md:flex-row items-center gap-8">
-    <!-- Imagen SVG -->
-    <div class="relative w-full md:w-1/2 flex justify-center">
+    <!-- Imagen de perfil encapsulada en un figure -->
+    <figure class="relative w-full md:w-1/2 flex flex-col items-center">
       <div class="relative w-64 h-64 md:w-80 md:h-80">
-        <!-- Imagen con máscara -->
-        <div class="relative w-full h-full">
-          <img
-            src="/images/SobreMi/profile_1.jpeg"
-            alt="Foto de Rochi"
-            class="w-full h-full object-cover"
-            style="mask: url('/images/SobreMi/img_mask.svg'); -webkit-mask: url('/images/SobreMi/img_mask.svg'); mask-size: cover; -webkit-mask-size: cover;"
-          />
-        </div>
+        <img
+          src="/images/SobreMi/profile_1.jpeg"
+          alt="Foto de Rochi"
+          class="w-full h-full object-cover"
+          style="mask: url('/images/SobreMi/img_mask.svg'); -webkit-mask: url('/images/SobreMi/img_mask.svg'); mask-size: cover; -webkit-mask-size: cover;"
+          loading="lazy"
+        />
       </div>
-    </div>
+    </figure>
 
-    <!-- Información -->
+    <!-- Información textual -->
     <div class="text-center md:text-left md:w-1/2">
-      <!-- Título -->
-      <div class="relative inline-block mb-6">
-        <h1
-          class="relative text-4xl md:text-5xl font-serif text-gray-700 leading-tight"
-        >
-          {title}
-        </h1>
-      </div>
+      <!-- Título principal -->
+      <h1
+        id="about-me-title"
+        class="text-4xl md:text-5xl font-serif text-gray-700 leading-tight mb-6"
+      >
+        {title}
+      </h1>
 
       <!-- Subtítulo -->
       <p class="text-lg md:text-xl text-gray-700 font-medium mb-6">
@@ -49,7 +50,8 @@ const description =
         <img
           src="/images/SobreMi/signature.svg"
           alt="Firma de Rochi"
-          class="w-32 md:w-48 mx-auto md:ml-0"
+          class="w-48 md:w-56 mx-auto md:ml-0"
+          loading="lazy"
         />
       </div>
     </div>

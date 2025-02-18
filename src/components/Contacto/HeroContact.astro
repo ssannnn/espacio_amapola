@@ -60,6 +60,7 @@ const faqItems = [
             type="text"
             id="name"
             name="name"
+            autocomplete="name"
             required
             class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65 text-xs md:text-sm"
             placeholder="Ingresa tu nombre completo"
@@ -78,6 +79,7 @@ const faqItems = [
             type="email"
             id="email"
             name="email"
+            autocomplete="email"
             required
             class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65 text-xs md:text-sm"
             placeholder="Ingresa tu correo electrónico"
@@ -96,6 +98,7 @@ const faqItems = [
             id="message"
             name="message"
             rows="5"
+            autocomplete="off"
             required
             class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-3 focus:ring-opacity-65 text-xs md:text-sm"
             placeholder="Escribe tu mensaje aquí"></textarea>
@@ -115,6 +118,7 @@ const faqItems = [
         <p
           id="confirmationMessage"
           class="text-green-600 text-center mt-4 hidden"
+          aria-live="polite"
         >
           ¡Tu mensaje ha sido enviado con éxito! Nos pondremos en contacto
           contigo pronto.
@@ -129,7 +133,7 @@ const faqItems = [
           class="rounded-lg object-cover w-full h-full"
         />
         <p class="text-xs md:text-sm font-sans text-gray-700 mt-4 text-center">
-          Zona de encuentros presenciales: Recoleta, CABA. Contactanos para
+          Zona de encuentros presenciales: Recoleta, CABA. Contáctanos para
           coordinar una ubicación exacta.
         </p>
       </div>
@@ -158,6 +162,7 @@ const faqItems = [
 
     <!-- Redes sociales -->
     <div class="flex justify-center space-x-6 mt-12">
+      <!-- Para WhatsApp, asegúrate que whatsappNumber contenga el enlace completo o usa: https://wa.me/${whatsappNumber} -->
       <a
         href={whatsappNumber}
         target="_blank"

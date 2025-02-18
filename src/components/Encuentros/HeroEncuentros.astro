@@ -89,9 +89,13 @@ const plans = [
 ];
 ---
 
-<section class="py-24">
+<section aria-labelledby="encuentros-title" class="py-24">
   <div class="container mx-auto px-6">
-    <h1 class="text-3xl md:text-5xl font-serif text-gray-700 text-center mb-4">
+    <!-- Título principal de la sección -->
+    <h1
+      id="encuentros-title"
+      class="text-3xl md:text-5xl font-serif text-gray-700 text-center mb-4"
+    >
       {title}
     </h1>
     <h2 class="text-base md:text-xl font-sans text-gray-800 text-center mb-12">
@@ -106,6 +110,7 @@ const plans = [
               src={plan.image}
               alt={`Imagen del plan ${plan.title}`}
               class="w-full h-48 sm:h-56 md:h-64 object-cover"
+              loading="lazy"
             />
             <div class="p-6">
               <div class="flex justify-center mb-4">
@@ -174,6 +179,8 @@ const plans = [
                       <div class="text-center mt-6">
                         <a
                           href={whatsappLink}
+                          role="button"
+                          aria-label={`Reservar para el plan ${plan.title} - ${sub.title}`}
                           class="px-4 md:px-5 py-2 bg-orange-3 text-white-1 font-medium font-sans rounded-lg md:hover:brightness-125 transition"
                         >
                           Reservar

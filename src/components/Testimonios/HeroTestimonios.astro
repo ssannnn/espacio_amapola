@@ -37,9 +37,12 @@ const testimonials = [
 ];
 ---
 
-<section class="py-24 bg-orange-50">
+<section aria-labelledby="testimonials-title" class="py-24 bg-orange-50">
   <div class="container mx-auto px-6 text-center">
-    <h1 class="text-4xl md:text-5xl font-serif text-gray-700 mb-4">
+    <h1
+      id="testimonials-title"
+      class="text-4xl md:text-5xl font-serif text-gray-700 mb-4"
+    >
       {title}
     </h1>
     <p class="text-lg md:text-xl font-sans text-gray-700 mb-8">
@@ -57,6 +60,7 @@ const testimonials = [
             src={testimonial.image}
             alt={testimonial.name}
             class="w-full h-56 object-cover"
+            loading="lazy"
           />
           <div class="p-6">
             <h2 class="text-lg md:text-2xl font-serif text-gray-700 py-1 px-3 rounded-full text-center">
@@ -69,8 +73,10 @@ const testimonials = [
               {testimonial.text}
             </p>
             <button
-              class="text-white-1 text-sm md:text-base font-medium hover:brightness-125 toggle-expand bg-orange-3 w-full rounded-lg"
+              class="toggle-expand text-white-1 text-sm md:text-base font-medium bg-orange-3 w-full rounded-lg hover:brightness-125 transition"
               data-index={index}
+              aria-controls={`testimonial-text-${index}`}
+              aria-expanded="false"
             >
               Leer más
             </button>
@@ -84,18 +90,17 @@ const testimonials = [
 <script is:inline>
   if (typeof window !== "undefined") {
     document.addEventListener("DOMContentLoaded", () => {
-      let activeIndex = -1;
-
       document.querySelectorAll(".toggle-expand").forEach((button) => {
         button.addEventListener("click", (event) => {
           const index = parseInt(event.target.dataset.index);
-
+          // Cierra los demás testimonios si estuvieran expandidos
           document.querySelectorAll(".testimonial-text").forEach((el, idx) => {
             if (idx !== index) {
               el.classList.remove("max-h-full");
               el.classList.add("max-h-24");
-              document.querySelectorAll(".toggle-expand")[idx].innerText =
-                "Leer más";
+              const otherBtn = document.querySelectorAll(".toggle-expand")[idx];
+              otherBtn.innerText = "Leer más";
+              otherBtn.setAttribute("aria-expanded", "false");
             }
           });
 
@@ -106,10 +111,12 @@ const testimonials = [
             textElement.classList.remove("max-h-24");
             textElement.classList.add("max-h-full");
             event.target.innerText = "Leer menos";
+            event.target.setAttribute("aria-expanded", "true");
           } else {
             textElement.classList.remove("max-h-full");
             textElement.classList.add("max-h-24");
             event.target.innerText = "Leer más";
+            event.target.setAttribute("aria-expanded", "false");
           }
         });
       });
