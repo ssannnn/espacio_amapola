@@ -123,7 +123,10 @@ const plans = [
               </p>
               <div class="space-y-6">
                 {plan.subProposals.map((sub) => {
-                  const whatsappLink = `/contacto?plan=${plan.title}&sub=${sub.title}`;
+                  const whatsappLink = generateWhatsAppURL(
+                    plan.title,
+                    sub.title
+                  );
                   return (
                     <div class="p-5 bg-orange-100 rounded-lg md:hover:scale-105 transition-all duration-300 ease-out">
                       <div class="flex justify-center mb-2">
