@@ -6,7 +6,7 @@ export default {
 	theme: {
 		extend: {
 			fontFamily:	{
-				serif: ['Lovechild', defaultTheme.fontFamily.serif],
+				serif: ['Sour Gummy', defaultTheme.fontFamily.serif],
 				sans: ['Montserrat', defaultTheme.fontFamily.sans]
 			},
 			backgroundImage: {
