@@ -1,80 +1,83 @@
+---
+---
 <section class="py-16">
-    <div class="container mx-auto px-6 text-center">
-      <!-- Título de la sección -->
-      <h2 class="text-4xl md:text-5xl font-serif text-gray-700 mb-12">
-        Mi Formación
-      </h2>
+  <div class="container mx-auto px-6 text-center">
+    <!-- Título de la sección -->
+    <h2 class="text-4xl md:text-5xl font-serif text-gray-700 mb-12">
+      Mi Formación
+    </h2>
   
-      <!-- Contenedor de logos -->
-      <div class="flex flex-wrap justify-center gap-8 lg:gap-12">
-        {[
-           {
-            logo: "/images/SobreMi/fundalam.png",
-            title: "FUNDALAM - Tecnicatura en Puericultura",
-          },
-          {
+    <!-- Contenedor de logos -->
+    <div class="flex flex-wrap justify-center gap-8 lg:gap-12">
+      {[
+         {
+          logo: "/images/SobreMi/fundalam.png",
+          title: "FUNDALAM - Tecnicatura en Puericultura",
+        },
+        {
           logo: "/images/SobreMi/natal.png",
-            title: "NATAL - Doula",
-          },
-          {
-            logo: "/images/SobreMi/isma.png",
-            title: "ISMA - Profesorado de nivel inicial",
-          },
-          {
-            logo: "/images/SobreMi/escuela-hugo-ardiles.png",
-            title: "Escuela Hugo Ardiles - Terapeuta corporal en gimnasia en centros de energía",
-          },
-          {
-            logo: "/images/SobreMi/psicologia-prenatal.png",
-            title: "Psicología Perinatal Argentina - Formacion en salud mental perinatal",
-          },
-          {
-            logo: "/images/SobreMi/paramana-doula.png",
-            title: "PARAMANA DOULA COURSE - Doula",
-          },
-          {
-            logo: "/images/SobreMi/frida-kaplan.png",
-            title: "Método Frida Kaplan - Docente",
-          },
-          {
-            logo: "/images/SobreMi/parto-positivo.png",
-            title: "PARTO POSITIVO - Profesorado de Hipnoparto",
-          },
-        ].map((formation, index) => (
+          title: "NATAL - Doula",
+        },
+        {
+          logo: "/images/SobreMi/isma.png",
+          title: "ISMA - Profesorado de nivel inicial",
+        },
+        {
+          logo: "/images/SobreMi/escuela-hugo-ardiles.png",
+          title: "Escuela Hugo Ardiles - Terapeuta corporal",
+        },
+        {
+          logo: "/images/SobreMi/psicologia-prenatal.png",
+          title: "Psicología Perinatal Argentina - Formacion en salud mental perinatal",
+        },
+        {
+          logo: "/images/SobreMi/paramana-doula.png",
+          title: "PARAMANA DOULA COURSE - Doula",
+        },
+        {
+          logo: "/images/SobreMi/frida-kaplan.png",
+          title: "Método Frida Kaplan - Docente",
+        },
+        {
+          logo: "/images/SobreMi/parto-positivo.png",
+          title: "PARTO POSITIVO - Profesorado de Hipnoparto",
+        },
+      ].map((formation, index) => (
+        <div
+          tabindex="0"
+          class="relative w-28 h-28 md:w-36 md:h-36 lg:w-36 lg:h-36 rounded-full flex justify-center items-center shadow-md transform transition-transform duration-500 hover:scale-110 focus:scale-110 group animate-bounce-slow"
+          style={`animation-delay: ${index * 0.3}s;`}
+          aria-label={formation.title}
+        >
+          <!-- Logo -->
+          <img
+            src={formation.logo}
+            alt={formation.title}
+            class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-300"
+            loading="lazy"
+          />
+          <!-- Texto que aparece al hover/focus -->
           <div
-            class="relative w-28 h-28 md:w-36 md:h-36 lg:w-36 lg:h-36 rounded-full flex justify-center items-center shadow-md transform transition-transform duration-500 hover:scale-110 group animate-bounce-slow"
-            style={`animation-delay: ${index * 0.3}s;`}
+             class="absolute inset-0 flex items-center justify-center text-gray-700 text-xs md:text-xs lg:text-xs group-hover:font-medium group-hover:scale-125 group-hover:opacity-100 group-focus:font-medium group-focus:scale-125 group-focus:opacity-100 bg-orange-100 border border-orange-3 rounded-full opacity-0 transition-all duration-500"
           >
-            <!-- Logo -->
-            <img
-              src={formation.logo}
-              alt={formation.title}
-              class="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 object-contain group-hover:opacity-0 transition-opacity duration-300"
-            />
-            <!-- Texto al hover -->
-            <div
-               class="absolute inset-0 flex items-center justify-center text-gray-700 group-hover:text-xs md:group-hover:text-xs lg:group-hover:text-xs group-hover:font-medium font-sans opacity-0 group-hover:opacity-100 bg-orange-100 border-orange-3 rounded-full group-hover:scale-125 transition-all duration-500"
-            >
-              {formation.title}
-            </div>
+            {formation.title}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
-  </section>
-  
-  <style is:inline>
-    @keyframes bounce-slow {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+  </div>
+</section>
+
+<style is:inline>
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
     }
-  
-    .animate-bounce-slow {
-      animation: bounce-slow 5s ease-in-out infinite;
+    50% {
+      transform: translateY(-10px);
     }
-  </style>
-  
+  }
+  .animate-bounce-slow {
+    animation: bounce-slow 5s ease-in-out infinite;
+  }
+</style>
