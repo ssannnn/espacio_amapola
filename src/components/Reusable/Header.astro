@@ -14,6 +14,8 @@ const navItems = [
 ];
 
 const whatsappNumber = import.meta.env.WHATSAPP_NUMBER;
+const facebookLink = import.meta.env.FACEBOOK_LINK_ADDRESS;
+const instagramLink = import.meta.env.INSTAGRAM_LINK_ADDRESS;
 ---
 
 <header
@@ -142,7 +144,7 @@ const whatsappNumber = import.meta.env.WHATSAPP_NUMBER;
 
       <!-- Redes Sociales -->
       <div class="flex space-x-4 mt-4">
-        <a href="#" target="_blank">
+        <a href={instagramLink} target="_blank">
           <InstagramIcon className="fill-white-1 h-5 w-5 " />
         </a>
         <a href="#" target="_blank">
